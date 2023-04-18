@@ -18,7 +18,37 @@ namespace RealEstate.Controllers
             return View();
         }
 
+        public IActionResult AllProperties()
+        {
+            return View();
+        }
+
+        public IActionResult Agent()
+        {
+            return View();
+        }
+
+        public IActionResult AllAgents()
+        {
+            return View();
+        }
+
+        public IActionResult New()
+        {
+            return View();
+        }
+
+        public IActionResult AllNews()
+        {
+            return View();
+        }
+
         public IActionResult Project()
+        {
+            return View();
+        }
+
+        public IActionResult ProjectDetail()
         {
             return View();
         }
@@ -28,7 +58,17 @@ namespace RealEstate.Controllers
             return View();
         }
 
+        public IActionResult BuyDetail()
+        {
+            return View();
+        }
+
         public IActionResult Rent() 
+        {
+            return View();
+        }
+
+        public IActionResult RentDetail()
         {
             return View();
         }
