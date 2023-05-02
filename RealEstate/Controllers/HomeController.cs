@@ -2,25 +2,67 @@
 using RealEstate.Models;
 using System.Diagnostics;
 
+
+
+
 namespace RealEstate.Controllers
 {
+
+
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+       
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly Ntphu24072001CnaContext _db;
+
+        public HomeController(Ntphu24072001CnaContext db) //store all connection string and table top retrieve data
         {
-            _logger = logger;
+            _db = db ;
+        }
+        
+        //GET HOME
+        public IActionResult Index()
+        {
+            return View();
         }
 
-        public IActionResult Index()
+        public IActionResult AllProperties()
+        {
+            return View();
+        }
+
+        public IActionResult Agent()
+        {
+            return View();
+        }
+
+        public IActionResult AllAgents()
+        {
+            return View();
+        }
+
+        public IActionResult New()
+        {
+            return View();
+        }
+
+        public IActionResult AllNews()
         {
             return View();
         }
 
         public IActionResult Project()
         {
+            
             return View();
+        }
+
+        public IActionResult ProjectDetail()
+        {
+            IEnumerable<Post> objPost = _db.Posts;
+            return View(objPost);
+
+            //return View();
         }
 
         public IActionResult Buy() 
@@ -28,7 +70,17 @@ namespace RealEstate.Controllers
             return View();
         }
 
+        public IActionResult BuyDetail()
+        {
+            return View();
+        }
+
         public IActionResult Rent() 
+        {
+            return View();
+        }
+
+        public IActionResult RentDetail()
         {
             return View();
         }

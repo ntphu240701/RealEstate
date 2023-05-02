@@ -1,7 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using RealEstate;
+using RealEstate.Models;
+using RealEstate.Reposistory;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<Ntphu24072001CnaContext>(options => options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefautConnection") 
+        ));//setup syntax to use DbContext 
+
+builder.Services.AddTransient<IPostReposistory, PostReposistory>();
 
 var app = builder.Build();
 
