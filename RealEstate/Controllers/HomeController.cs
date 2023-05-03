@@ -2,17 +2,25 @@
 using RealEstate.Models;
 using System.Diagnostics;
 
+
+
+
 namespace RealEstate.Controllers
 {
+
+
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+       
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly Ntphu24072001CnaContext _db;
+
+        public HomeController(Ntphu24072001CnaContext db) //store all connection string and table top retrieve data
         {
-            _logger = logger;
+            _db = db ;
         }
-
+        
+        //GET HOME
         public IActionResult Index()
         {
             return View();
@@ -45,12 +53,16 @@ namespace RealEstate.Controllers
 
         public IActionResult Project()
         {
+            
             return View();
         }
 
         public IActionResult ProjectDetail()
         {
-            return View();
+
+            IEnumerable<Post> objPost = _db.Posts;
+            return View(objPost);
+
         }
 
         public IActionResult Buy() 
