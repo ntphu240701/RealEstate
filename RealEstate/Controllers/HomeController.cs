@@ -59,10 +59,10 @@ namespace RealEstate.Controllers
 
         public IActionResult ProjectDetail()
         {
+
             IEnumerable<Post> objPost = _db.Posts;
             return View(objPost);
 
-            //return View();
         }
 
         public IActionResult Buy() 
