@@ -1,34 +1,59 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RealEstate.Models;
+using RealEstate.Reposistory;
 using System.Diagnostics;
-
-
-
 
 namespace RealEstate.Controllers
 {
-
-
     public class HomeController : Controller
     {
-       
+        private IPostReposistory _postReposistory;
+        private ISellerReposistory _sellerReposistory;        
+        private IPropertyReposistory _propertyReposistory;
+        private INewsReposistory _newsReposistory;
+        private IUserReposistory _userReposistory;
 
-        private readonly Ntphu24072001CnaContext _db;
-
-        public HomeController(Ntphu24072001CnaContext db) //store all connection string and table top retrieve data
+        public HomeController(IPostReposistory postReposistory, 
+                              ISellerReposistory sellerReposistory, 
+                              IPropertyReposistory propertyReposistory, 
+                              INewsReposistory newsReposistory,
+                              IUserReposistory userReposistory) //store all connection string and table top retrieve data
         {
-            _db = db ;
-        }
-        
+            _postReposistory = postReposistory;
+            _sellerReposistory = sellerReposistory;
+            _propertyReposistory = propertyReposistory;
+            _newsReposistory = newsReposistory;
+            _userReposistory = userReposistory;
+        }        
+
         //GET HOME
         public IActionResult Index()
         {
-            return View();
+            HomeModel model = new HomeModel();
+
+            List<Post> objPostList = _postReposistory.GetTop3();            
+            model.MyPost = objPostList;
+
+            List<Property> objPropertyList = _propertyReposistory.GetAll();
+            model.MyProp = objPropertyList;
+
+            List<Seller> objSellerList = _sellerReposistory.GetTop3();            
+            model.MySeller = objSellerList;            
+
+            List<News> objNewsList = _newsReposistory.GetTop3();
+            model.MyNews = objNewsList;
+
+            List<LoginUser> objUserList = _userReposistory.GetAll();
+            model.MyUser = objUserList;
+
+            return View(model);
         }
 
         public IActionResult AllProperties()
         {
-            return View();
+            var objPropertyList = _postReposistory.GetAll();
+
+            return View("AllProperties", objPropertyList);            
         }
 
         public IActionResult Agent()
@@ -38,7 +63,9 @@ namespace RealEstate.Controllers
 
         public IActionResult AllAgents()
         {
-            return View();
+            var objSellerList = _sellerReposistory.GetAll();
+
+            return View("AllAgents", objSellerList);            
         }
 
         public IActionResult New()
@@ -48,21 +75,19 @@ namespace RealEstate.Controllers
 
         public IActionResult AllNews()
         {
-            return View();
+            var objNewsList = _newsReposistory.GetAll();
+
+            return View("AllNews", objNewsList);
         }
 
         public IActionResult Project()
-        {
-            
-            return View();
+        { 
+            return View();            
         }
 
         public IActionResult ProjectDetail()
-        {
-
-            IEnumerable<Post> objPost = _db.Posts;
-            return View(objPost);
-
+        {            
+            return View();
         }
 
         public IActionResult Buy() 

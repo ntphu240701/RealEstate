@@ -20,4 +20,6 @@ public partial class LoginUser
     /// 1: active
     /// </summary>
     public int Status { get; set; }
+
+    public virtual ICollection<Image> Images { get; set; } = new List<Image>();
 }

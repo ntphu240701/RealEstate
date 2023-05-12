@@ -76,44 +76,22 @@
                                 <option>Colorado</option>
                             </select>
                         </div>
-                    </div>
+                    </div>                    
                     <div class="col-md-6 mb-2">
                         <div class="form-group">
-                            <label for="bedrooms">Bedrooms</label>
-                            <select class="form-control form-control-lg form-control-a" id="bedrooms">
-                                <option>Any</option>
-                                <option>01</option>
-                                <option>02</option>
-                                <option>03</option>
+                            <label for="price">Low Price</label>
+                            <select class="form-control form-control-lg form-control-a" id="price">
+                                <option>Unlimite</option>
+                                <option>$50,000</option>
+                                <option>$100,000</option>
+                                <option>$150,000</option>
+                                <option>$200,000</option>
                             </select>
                         </div>
                     </div>
-                    <!-- <div class="col-md-6 mb-2">
-                      <div class="form-group">
-                        <label for="garages">Garages</label>
-                        <select class="form-control form-control-lg form-control-a" id="garages">
-                          <option>Any</option>
-                          <option>01</option>
-                          <option>02</option>
-                          <option>03</option>
-                          <option>04</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                      <div class="form-group">
-                        <label for="bathrooms">Bathrooms</label>
-                        <select class="form-control form-control-lg form-control-a" id="bathrooms">
-                          <option>Any</option>
-                          <option>01</option>
-                          <option>02</option>
-                          <option>03</option>
-                        </select>
-                      </div>
-                    </div> -->
                     <div class="col-md-6 mb-2">
                         <div class="form-group">
-                            <label for="price">Min Price</label>
+                            <label for="price">High Price</label>
                             <select class="form-control form-control-lg form-control-a" id="price">
                                 <option>Unlimite</option>
                                 <option>$50,000</option>
@@ -141,7 +119,8 @@
                 <span></span>
                 <span></span>
             </button>
-            <a class="navbar-brand text-brand" href="index.html">Estate<span class="color-b">Agency</span></a>
+            <a class="navbar-brand text-brand" asp-area="" asp-controller="Home" asp-action="Index">Estate
+                <span class="color-b">Agency</span></a>
             <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
                     data-target="#navbarTogglerDemo01" aria-expanded="false">
                 <span class="fa fa-search" aria-hidden="true"></span>
@@ -151,8 +130,8 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>                    
-                    <li class="nav-item">
-                        <a class="nav-link text-dark"  asp-controller="Post" asp-action="Index"> Project</a>
+                    <li class="nav-item">                        
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Project">Project</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Buy">Buy</a>
@@ -275,6 +254,7 @@
             </div>
         </div>
     </section>
+
     <footer>
         <div class="container">
             <div class="row">

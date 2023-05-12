@@ -13,6 +13,10 @@ builder.Services.AddDbContext<Ntphu24072001CnaContext>(options => options.UseSql
         ));//setup syntax to use DbContext 
 
 builder.Services.AddTransient<IPostReposistory, PostReposistory>();
+builder.Services.AddTransient<ISellerReposistory, SellerReposistory>();
+builder.Services.AddTransient<IPropertyReposistory, PropertyReposistory>();
+builder.Services.AddTransient<INewsReposistory, NewsReposistory>();
+builder.Services.AddTransient<IUserReposistory, UserReposistory>();
 
 var app = builder.Build();
 

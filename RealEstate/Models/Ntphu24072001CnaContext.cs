@@ -10,7 +10,10 @@ public partial class Ntphu24072001CnaContext : DbContext
     {
     }
 
-    public Ntphu24072001CnaContext(DbContextOptions<Ntphu24072001CnaContext> options): base(options){}
+    public Ntphu24072001CnaContext(DbContextOptions<Ntphu24072001CnaContext> options)
+        : base(options)
+    {
+    }
 
     public virtual DbSet<Admin> Admins { get; set; }
 
@@ -28,13 +31,13 @@ public partial class Ntphu24072001CnaContext : DbContext
 
     public virtual DbSet<Post> Posts { get; set; }
 
-    public virtual DbSet<Property> Propertys { get; set; }
+    public virtual DbSet<Property> Properties { get; set; }
 
     public virtual DbSet<Seller> Sellers { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=sql.bsite.net\\MSSQL2016;Database=  ntphu24072001_CNA ;User Id=ntphu24072001_CNA; Password=123;  Encrypt=true;TrustServerCertificate=true ");
+        => optionsBuilder.UseSqlServer("Server=sql.bsite.net\\MSSQL2016;Database=ntphu24072001_CNA;User Id=ntphu24072001_CNA;Password=123;TrustServerCertificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -62,12 +65,26 @@ public partial class Ntphu24072001CnaContext : DbContext
         modelBuilder.Entity<Image>(entity =>
         {
             entity.Property(e => e.Image1).HasColumnName("Image");
+            entity.Property(e => e.LoginUserId).HasColumnName("LoginUser_Id");
+            entity.Property(e => e.NewsId).HasColumnName("News_Id");
             entity.Property(e => e.RealEstateId).HasColumnName("RealEstate_Id");
+            entity.Property(e => e.SellerId).HasColumnName("Seller_Id");
 
-            entity.HasOne(d => d.Property).WithMany(p => p.Images)
+            entity.HasOne(d => d.LoginUser).WithMany(p => p.Images)
+                .HasForeignKey(d => d.LoginUserId)
+                .HasConstraintName("FK_Images_LoginUser");
+
+            entity.HasOne(d => d.News).WithMany(p => p.Images)
+                .HasForeignKey(d => d.NewsId)
+                .HasConstraintName("FK_Images_News");
+
+            entity.HasOne(d => d.RealEstate).WithMany(p => p.Images)
                 .HasForeignKey(d => d.RealEstateId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Images_RealEstate");
+
+            entity.HasOne(d => d.Seller).WithMany(p => p.Images)
+                .HasForeignKey(d => d.SellerId)
+                .HasConstraintName("FK_Images_Seller");
         });
 
         modelBuilder.Entity<Location>(entity =>
@@ -116,7 +133,7 @@ public partial class Ntphu24072001CnaContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Post_Admin");
 
-            entity.HasOne(d => d.Property).WithMany(p => p.Posts)
+            entity.HasOne(d => d.RealEstate).WithMany(p => p.Posts)
                 .HasForeignKey(d => d.RealEstateId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Post_RealEstate");
@@ -129,23 +146,25 @@ public partial class Ntphu24072001CnaContext : DbContext
 
         modelBuilder.Entity<Property>(entity =>
         {
+            entity.HasKey(e => e.Id).HasName("PK_RealEstate");
+
             entity.ToTable("Property");
 
             entity.Property(e => e.CategoryId).HasColumnName("Category_Id");
             entity.Property(e => e.ChuDauTuId).HasColumnName("ChuDauTu_Id");
             entity.Property(e => e.LocationId).HasColumnName("Location_Id");
 
-            entity.HasOne(d => d.Category).WithMany(p => p.Property)
+            entity.HasOne(d => d.Category).WithMany(p => p.Properties)
                 .HasForeignKey(d => d.CategoryId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_RealEstate_Category");
 
-            entity.HasOne(d => d.ChuDauTu).WithMany(p => p.Property)
+            entity.HasOne(d => d.ChuDauTu).WithMany(p => p.Properties)
                 .HasForeignKey(d => d.ChuDauTuId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_RealEstate_ChuDauTu1");
 
-            entity.HasOne(d => d.Location).WithMany(p => p.Property)
+            entity.HasOne(d => d.Location).WithMany(p => p.Properties)
                 .HasForeignKey(d => d.LocationId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_RealEstate_Location");
