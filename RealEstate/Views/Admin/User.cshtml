@@ -1,3 +1,7 @@
+@{
+    ViewData["Title"] = "User";
+    Layout = null;
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,29 +14,28 @@
     <title>Users</title>
 
     <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="~/css_admin/font-face.css" rel="stylesheet" media="all">
+    <link href="~/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/4.0.0/material-components-web.min.css"
-        rel="stylesheet">
+          rel="stylesheet">
     <link href="https://cdn.datatables.net/1.13.4/css/dataTables.material.min.css" rel="stylesheet">
 
     <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="~/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="~/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="~/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all">
+    <link href="~/css_admin/theme.css" rel="stylesheet" media="all">
 
 </head>
 
@@ -44,7 +47,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.html">
-                            <img src="images/icon/logo.png" alt="CoolAdmin" />
+                            <img src="~/images/icon/logo.png" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -59,27 +62,33 @@
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
                             <a class="js-arrow" href="index.html">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i class="fas fa-tachometer-alt"></i>Dashboard
+                            </a>
                         </li>
                         <li>
                             <a href="Property.html">
-                                <i class="fas fa-chart-bar"></i>Property</a>
+                                <i class="fas fa-chart-bar"></i>Property
+                            </a>
                         </li>
                         <li>
                             <a href="table.html">
-                                <i class="fas fa-table"></i>Tables</a>
+                                <i class="fas fa-table"></i>Tables
+                            </a>
                         </li>
                         <li>
                             <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms</a>
+                                <i class="far fa-check-square"></i>Forms
+                            </a>
                         </li>
                         <li class="active">
                             <a href="User.html">
-                                <i class="fas fa-User-alt"></i>Users</a>
+                                <i class="fas fa-User-alt"></i>Users
+                            </a>
                         </li>
                         <li>
                             <a href="New.html">
-                                <i class="fas fa-map-marker-alt"></i>Maps</a>
+                                <i class="fas fa-map-marker-alt"></i>Maps
+                            </a>
                         </li>
                         <li>
                             <a href="calendar.html">
@@ -88,7 +97,8 @@
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
+                                <i class="fas fa-copy"></i>Pages
+                            </a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
                                     <a href="login.html">Login</a>
@@ -106,12 +116,11 @@
             </nav>
         </header>
         <!-- END HEADER MOBILE-->
-
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="images/icon/logo.png" alt="Cool Admin" />
+                    <img src="~/images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -119,19 +128,23 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
                             <a class="js-arrow" href="index.html">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i class="fas fa-tachometer-alt"></i>Dashboard
+                            </a>
                         </li>
                         <li>
                             <a href="Property.html">
-                                <i class="fas fa-chart-bar"></i>Property</a>
+                                <i class="fas fa-chart-bar"></i>Property
+                            </a>
                         </li>
                         <li class="active">
                             <a href="User.html">
-                                <i class="fas fa-users"></i>Users</a>
+                                <i class="fas fa-users"></i>Users
+                            </a>
                         </li>
                         <li>
                             <a href="New.html">
-                                <i class="fas fa-newspaper"></i>News</a>
+                                <i class="fas fa-newspaper"></i>News
+                            </a>
                         </li>
                         <li>
                             <a href="calendar.html">
@@ -140,7 +153,8 @@
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
+                                <i class="fas fa-copy"></i>Pages
+                            </a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="login.html">Login</a>
@@ -158,7 +172,6 @@
             </div>
         </aside>
         <!-- END MENU SIDEBAR-->
-
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
@@ -168,7 +181,7 @@
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
                                 <input class="au-input au-input--xl" type="text" name="search"
-                                    placeholder="Search for datas &amp; reports..." />
+                                       placeholder="Search for datas &amp; reports..." />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
@@ -177,7 +190,7 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img src="~/images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="card.html">john doe</a>
@@ -186,7 +199,7 @@
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="card.html">
-                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img src="~/images/icon/avatar-01.jpg" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
@@ -199,11 +212,13 @@
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="card.html">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                        <i class="zmdi zmdi-account"></i>Account
+                                                    </a>
                                                 </div>
                                                 <div class="account-dropdown__item">
                                                     <a href="login.html">
-                                                        <i class="zmdi zmdi-power"></i>Logout</a>
+                                                        <i class="zmdi zmdi-power"></i>Logout
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -249,7 +264,7 @@
                                                         <ul class="list-inline">
                                                             <li class="list-inline-item">
                                                                 <img alt="PropertyImage" class="table-avatar"
-                                                                    src="/images/icon/logo-blue.png">
+                                                                     src="~/images/icon/logo-blue.png">
                                                             </li>
                                                         </ul>
                                                     </td>
@@ -280,7 +295,7 @@
                                                         <ul class="list-inline">
                                                             <li class="list-inline-item">
                                                                 <img alt="PropertyImage" class="table-avatar"
-                                                                    src="/images/icon/logo-blue.png">
+                                                                     src="~/images/icon/logo-blue.png">
                                                             </li>
                                                         </ul>
                                                     </td>
@@ -311,7 +326,7 @@
                                                         <ul class="list-inline">
                                                             <li class="list-inline-item">
                                                                 <img alt="PropertyImage" class="table-avatar"
-                                                                    src="/images/icon/logo-blue.png">
+                                                                     src="~/images/icon/logo-blue.png">
                                                             </li>
                                                         </ul>
                                                     </td>
@@ -342,7 +357,7 @@
                                                         <ul class="list-inline">
                                                             <li class="list-inline-item">
                                                                 <img alt="PropertyImage" class="table-avatar"
-                                                                    src="/images/icon/logo-blue.png">
+                                                                     src="~/images/icon/logo-blue.png">
                                                             </li>
                                                         </ul>
                                                     </td>
@@ -360,66 +375,66 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <td>
-                                                    <div class="table-data__info">
-                                                        <h6>lori lynch</h6>
-                                                        <span>
-                                                            <a href="#">johndoe@gmail.com</a>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <ul class="list-inline">
-                                                        <li class="list-inline-item">
-                                                            <img alt="PropertyImage" class="table-avatar"
-                                                                src="/images/icon/logo-blue.png">
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td>
-                                                    <span class="role user">user</span>
-                                                </td>
-                                                <td>
-                                                    <div class="rs-select2--trans rs-select2--sm">
-                                                        <select class="js-select2" name="property">
-                                                            <option value="">Full Control</option>
-                                                            <option value="">Post</option>
-                                                            <option value="">Watch</option>
-                                                        </select>
-                                                        <div class="dropDownSelect2"></div>
-                                                    </div>
-                                                </td>
-                                                </tr>
-                                                <td>
-                                                    <div class="table-data__info">
-                                                        <h6>PHU LO</h6>
-                                                        <span>
-                                                            <a href="#">3@gmail.com</a>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <ul class="list-inline">
-                                                        <li class="list-inline-item">
-                                                            <img alt="PropertyImage" class="table-avatar"
-                                                                src="/images/icon/logo-blue.png">
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td>
-                                                    <span class="role user">user</span>
-                                                </td>
-                                                <td>
-                                                    <div class="rs-select2--trans rs-select2--sm">
-                                                        <select class="js-select2" name="property">
-                                                            <option value="">Full Control</option>
-                                                            <option value="">Post</option>
-                                                            <option value="">Watch</option>
-                                                        </select>
-                                                        <div class="dropDownSelect2"></div>
-                                                    </div>
-                                                </td>
-                                                </tr>
+                                            <td>
+                                                <div class="table-data__info">
+                                                    <h6>lori lynch</h6>
+                                                    <span>
+                                                        <a href="#">johndoe@gmail.com</a>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item">
+                                                        <img alt="PropertyImage" class="table-avatar"
+                                                             src="~/images/icon/logo-blue.png">
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <span class="role user">user</span>
+                                            </td>
+                                            <td>
+                                                <div class="rs-select2--trans rs-select2--sm">
+                                                    <select class="js-select2" name="property">
+                                                        <option value="">Full Control</option>
+                                                        <option value="">Post</option>
+                                                        <option value="">Watch</option>
+                                                    </select>
+                                                    <div class="dropDownSelect2"></div>
+                                                </div>
+                                            </td>
+                                            </tr>
+                                            <td>
+                                                <div class="table-data__info">
+                                                    <h6>PHU LO</h6>
+                                                    <span>
+                                                        <a href="#">3@gmail.com</a>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item">
+                                                        <img alt="PropertyImage" class="table-avatar"
+                                                             src="~/images/icon/logo-blue.png">
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <span class="role user">user</span>
+                                            </td>
+                                            <td>
+                                                <div class="rs-select2--trans rs-select2--sm">
+                                                    <select class="js-select2" name="property">
+                                                        <option value="">Full Control</option>
+                                                        <option value="">Post</option>
+                                                        <option value="">Watch</option>
+                                                    </select>
+                                                    <div class="dropDownSelect2"></div>
+                                                </div>
+                                            </td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -433,7 +448,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="copyright">
-                            <p>Copyright © 2023. All rights reserved. Team <a href="#">LPH</a> with love
+                            <p>
+                                Copyright © 2023. All rights reserved. Team <a href="#">LPH</a> with love
                             </p>
                         </div>
                     </div>
@@ -441,43 +457,41 @@
             </div>
 
             <!-- Jquery JS-->
-            <script src="vendor/jquery-3.2.1.min.js"></script>
+            <script src="~/vendor/jquery-3.2.1.min.js"></script>
             <!-- Bootstrap JS-->
-            <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-            <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+            <script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
+            <script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
             <!-- Vendor JS       -->
-            <script src="vendor/slick/slick.min.js">
+            <script src="~/vendor/slick/slick.min.js">
             </script>
             <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
             <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"> </script>
-
             <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-            <script src="vendor/wow/wow.min.js"></script>
-            <script src="vendor/animsition/animsition.min.js"></script>
-            <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+            <script src="~/vendor/wow/wow.min.js"></script>
+            <script src="~/vendor/animsition/animsition.min.js"></script>
+            <script src="~/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
             </script>
-            <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-            <script src="vendor/counter-up/jquery.counterup.min.js">
+            <script src="~/vendor/counter-up/jquery.waypoints.min.js"></script>
+            <script src="~/vendor/counter-up/jquery.counterup.min.js">
             </script>
-            <script src="vendor/circle-progress/circle-progress.min.js"></script>
-            <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-            <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-            <script src="vendor/select2/select2.min.js">
+            <script src="~/vendor/circle-progress/circle-progress.min.js"></script>
+            <script src="~/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+            <script src="~/vendor/chartjs/Chart.bundle.min.js"></script>
+            <script src="~/vendor/select2/select2.min.js">
             </script>
-
 
             <!-- Main JS-->
-            <script src="js/main.js"></script>
+            <script src="~/js_admin/main_admin.js"></script>
 
             <script>
                 $(document).ready(function () {
-                    $('#table-page').DataTable({
+                    $("#table-page").DataTable({
                         pageLength: 5,
                         lengthMenu: [[5, 10, 20], [5, 10, 20]],
                         autoWidth: false,
                         columnDefs: [
                             {
-                                targets: ['_all'],
+                                targets: ["_all"],
                             },
                         ],
                     });

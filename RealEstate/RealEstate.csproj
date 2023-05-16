@@ -58,7 +58,7 @@
 
   <ItemGroup>
     <None Include="Views\Admin\AddProperty.cshtml" />
-    <None Include="Views\Admin\calendar.cshtml" />
+    <None Include="Views\Admin\Calendar.cshtml" />
     <None Include="wwwroot\contactform\contactform.js" />
     <None Include="wwwroot\contactform\Readme.txt" />
     <None Include="wwwroot\css\login.css" />

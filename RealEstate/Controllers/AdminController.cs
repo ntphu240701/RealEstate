@@ -8,5 +8,25 @@ namespace RealEstate.Controllers
         {
             return View();
         }
+        public IActionResult Property()
+        {
+            return View();
+        }
+        public IActionResult PropertyDetail()
+        {
+            return View();
+        }
+        public IActionResult NewDetail()
+        {
+            return View();
+        }
+        public IActionResult New()
+        {
+            return View();
+        }
+        public IActionResult EditNew()
+        {
+            return View();
+        }
     }
 }
