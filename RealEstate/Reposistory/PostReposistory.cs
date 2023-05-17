@@ -14,6 +14,8 @@ namespace RealEstate.Reposistory
         public Boolean Update(Post post);
 
         public Boolean Delete(int postid);
+
+        //public List<Post> GetByCateId(int Id);
     }
 
     public class PostReposistory : IPostReposistory
@@ -22,21 +24,11 @@ namespace RealEstate.Reposistory
         public PostReposistory(Ntphu24072001CnaContext ctx)
         {
             _ctx = ctx;
-        }
-
-        public bool Create(Post post)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete(int postid)
-        {
-            throw new NotImplementedException();
-        }
+        }       
 
         public List<Post> GetAll()
         {
-            return _ctx.Posts.Include(x=>x.RealEstate).ToList(); 
+            return _ctx.Posts.ToList(); 
         }
 
         public List<Post> GetTop3()
@@ -48,5 +40,18 @@ namespace RealEstate.Reposistory
         {
             throw new NotImplementedException();
         }
+        public bool Create(Post post)
+        {
+            throw new NotImplementedException();
+        }
+        public bool Delete(int postid)
+        {
+            throw new NotImplementedException();
+        }
+
+        /*public List<Post> GetByCateId(int Id)
+        {
+            return _ctx.Posts.Where(x=>x.)
+        }*/
     }
 }

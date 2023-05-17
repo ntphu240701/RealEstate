@@ -1,4 +1,4 @@
-﻿@model List<RealEstate.Models.Post>
+﻿@model List<RealEstate.Models.Property>
 
 @{
     ViewData["Title"] = "All Properties";
@@ -55,23 +55,24 @@
             <tbody>
                 @foreach (var obj in Model)
                 {
+                    string imgURL = @obj.Images.ToList()[0].Image1;
                     <div class="col-md-4">
                         <div class="card-box-a card-shadow">
                             <div class="img-box-a">
-                                <img src="~/img/property-1.jpg" alt="" class="img-a img-fluid">
+                                <img src="~/img/@imgURL" alt="" class="img-a img-fluid">
                             </div>
 
                             <div class="card-overlay">
                                 <div class="card-overlay-a-content">
                                     <div class="card-header-a">
                                         <h2 class="card-title-a">
-                                            <a> @obj.RealEstate.Name</a>
+                                            <a> @obj.Name</a>
                                         </h2>
                                     </div>
 
                                     <div class="card-body-a">
                                         <div class="price-box d-flex">
-                                            <span class="price-a">@obj.RealEstate.Price</span>
+                                            <span class="price-a">@obj.Price</span>
                                         </div>
                                         <a asp-controller="Home" asp-action="ProjectDetail" class="link-a">
                                             Click here to view
@@ -83,22 +84,22 @@
                                         <ul class="card-info d-flex justify-content-around">
                                             <li>
                                                 <h4 class="card-info-title">Area</h4>
-                                                <span> @obj.RealEstate.DienTich</span>
+                                                <span> @obj.DienTich</span>
                                             </li>
 
                                             <li>
                                                 <h4 class="card-info-title">Type</h4>
-                                                <span>@obj.RealEstate.CategoryId</span>
+                                                <span>@obj.CategoryId</span>
                                             </li>
 
                                             <li>
                                                 <h4 class="card-info-title">Location</h4>
-                                                <span> @obj.RealEstate.LocationId</span>
+                                                <span> @obj.LocationId</span>
                                             </li>
 
                                             <li>
                                                 <h4 class="card-info-title">Investor</h4>
-                                                <span> @obj.RealEstate.ChuDauTuId</span>
+                                                <span> @obj.ChuDauTuId</span>
                                             </li>
                                         </ul>
                                     </div>

@@ -20,12 +20,12 @@ namespace RealEstate.Reposistory
 
         public List<News> GetAll()
         {
-            return _ctx.News.ToList();
+            return _ctx.News.Include(x => x.Images).ToList();
         }
 
         public List<News> GetTop3()
         {
-            return _ctx.News.OrderByDescending(x => x.Id).Take(3).ToList();
+            return _ctx.News.Include(x => x.Images).OrderByDescending(x => x.Id).Take(3).ToList();
         }
     }
 }

@@ -39,10 +39,11 @@
             <tbody>
                 @foreach (var obj in Model)
                 {
+                    string imgURL = @obj.Images.ToList()[0].Image1;
                     <div class="col-md-4">
                         <div class="card-box-d">
                             <div class="card-img-d">
-                                <img src="~/img/agent-4.jpg" alt="" class="img-d img-fluid">
+                                <img src="~/img/@imgURL" alt="" class="img-d img-fluid">
                             </div>
                             <div class="card-overlay card-overlay-hover">
                                 <div class="card-header-d">
