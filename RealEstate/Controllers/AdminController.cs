@@ -12,6 +12,10 @@ namespace RealEstate.Controllers
         {
             return View();
         }
+        public IActionResult AddProperty()
+        {
+            return View();
+        }
         public IActionResult PropertyDetail()
         {
             return View();
@@ -25,6 +29,10 @@ namespace RealEstate.Controllers
             return View();
         }
         public IActionResult EditNew()
+        {
+            return View();
+        }
+        public IActionResult Calendar()
         {
             return View();
         }

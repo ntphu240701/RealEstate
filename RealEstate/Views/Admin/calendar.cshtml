@@ -1,4 +1,4 @@
-@{
+﻿@{
     ViewData["Title"] = "Calendar";
     Layout = null;
 }
@@ -10,8 +10,6 @@
     <title>Calendar</title>
 
     <link href="~/vendor/fullcalendar-3.10.0/calendar-main.css" rel="stylesheet" media="all">
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.6/index.global.min.js'></script>
-
     <!-- Fontfaces CSS-->
     <link href="~/css_admin/font-face.css" rel="stylesheet" media="all">
     <link href="~/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -329,7 +327,7 @@
             <!-- full calendar requires moment along jquery which is included above -->
             <script src="~/vendor/moment/moment.min.js"></script>
             <script src="~/vendor/fullcalendar-3.10.0/main.js"></script>
-
+            <script src="~/js_admin/index.global.min.js"></script>
             <!-- Main JS-->
             <script src="~/js_admin/main_admin.js"></script>
 
@@ -503,4 +501,3 @@
 </body>
 
 </html>
-<!-- end document-->
