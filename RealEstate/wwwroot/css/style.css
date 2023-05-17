@@ -1058,6 +1058,7 @@ a:hover {
 .card-header-a .card-title-a a {
   color: #ffffff;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .card-body-a {

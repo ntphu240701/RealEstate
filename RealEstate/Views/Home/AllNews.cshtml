@@ -39,29 +39,30 @@
             <tbody>
                 @foreach (var obj in Model)
                 {
-            <div class="col-md-4">
-                <div class="card-box-b card-shadow news-box">
-                    <div class="img-box-b">
-                        <img src="~/img/post-1.jpg" alt="" class="img-b img-fluid">
-                    </div>
-                    <div class="card-overlay">
-                        <div class="card-header-b">
-                            <div class="card-category-b"></div>
-                            <div class="card-title-b">
-                                <h2 class="title-2">
-                                    <a asp-area="" asp-controller="Home" asp-action="New">
-                                        @obj.Title
-                                    </a>
-                                </h2>
+                    string imgURL = obj.Images.ToList()[0].Image1;
+                    <div class="col-md-4">
+                        <div class="card-box-b card-shadow news-box">
+                            <div class="img-box-b">
+                                <img src="~/img/@imgURL" alt="" class="img-b img-fluid">
                             </div>
-                            <div class="card-date">
-                                <span class="date-b">@obj.Date</span>
+                            <div class="card-overlay">
+                                <div class="card-header-b">
+                                    <div class="card-category-b"></div>
+                                    <div class="card-title-b">
+                                        <h2 class="title-2">
+                                            <a asp-area="" asp-controller="Home" asp-action="New">
+                                                @obj.Title
+                                            </a>
+                                        </h2>
+                                    </div>
+                                    <div class="card-date">
+                                        <span class="date-b">@obj.Date</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            }
+                }
             </tbody>            
         </div>
 

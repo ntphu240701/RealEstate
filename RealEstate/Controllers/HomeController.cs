@@ -50,10 +50,10 @@ namespace RealEstate.Controllers
         }
 
         public IActionResult AllProperties()
-        {
-            var objPropertyList = _postReposistory.GetAll();
+        {           
+            var objPropertyList = _propertyReposistory.GetAll();
 
-            return View("AllProperties", objPropertyList);            
+            return View("AllProperties", objPropertyList);
         }
 
         public IActionResult Agent()
