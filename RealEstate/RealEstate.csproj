@@ -630,6 +630,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0-preview.3.23174.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0-preview.3.23174.2">
       <PrivateAssets>all</PrivateAssets>

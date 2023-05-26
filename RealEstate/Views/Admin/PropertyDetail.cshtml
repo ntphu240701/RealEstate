@@ -103,11 +103,12 @@
                 </div>
             </nav>
         </header>
+
         <!-- END HEADER MOBILE-->
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a asp-area="" asp-controller="Admin" asp-action="index" class="logo">
+                <a asp-area="" asp-controller="Admin" asp-action="index">
                     <img src="~/images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
@@ -140,12 +141,12 @@
                             </a>
                         </li>
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
+                            <a asp-area="" asp-controller="Admin" asp-action="AddProperty" class="js-arrow">
                                 <i class="fas fa-copy"></i>Pages
                             </a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a asp-area="" asp-controller="Admin" asp-action="login"></a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="Login"></a>
                                 </li>
                                 <li>
                                     <a asp-area="" asp-controller="Admin" asp-action="register"></a>
@@ -181,30 +182,30 @@
                                             <img src="~/images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="card.html">john doe</a>
+                                            <a asp-area="" asp-controller="Admin" asp-action="card" class="js-acc-btn">John Doe</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
-                                                    <a href="card.html">
+                                                    <a asp-area="" asp-controller="Admin" asp-action="card">
                                                         <img src="~/images/icon/avatar-01.jpg" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="card.html">john doe</a>
+                                                        <a asp-area="" asp-controller="Admin" asp-action="card">john doe</a>
                                                     </h5>
                                                     <span class="email">johndoe@example.com</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="card.html">
+                                                    <a asp-area="" asp-controller="Admin" asp-action="card">
                                                         <i class="zmdi zmdi-account"></i>Account
                                                     </a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="login.html">
+                                                    <a asp-area="" asp-controller="Admin" asp-action="Login">
                                                         <i class="zmdi zmdi-power"></i>Logout
                                                     </a>
                                                 </div>
@@ -218,7 +219,6 @@
                 </div>
             </header>
             <!-- HEADER DESKTOP-->
-
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
@@ -490,7 +490,14 @@
                                 <!-- /.card -->
                             </div>
                         </div>
-
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    Copyright © 2023. All rights reserved. Team <a asp-area="" asp-controller="Admin" asp-action="index">LPH</a> with love
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Jquery JS-->
