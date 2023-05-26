@@ -34,8 +34,8 @@
 
     <style type="text/css">
         /* force class color to override the bootstrap base rule
-       NOTE: adding 'url: #' to calendar makes this unneeded
-     */
+                       NOTE: adding 'url: #' to calendar makes this unneeded
+                     */
         .fc-event,
         .fc-event:hover {
             color: #fff !important;
@@ -57,7 +57,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
+                        <a asp-area="" asp-controller="Admin" asp-action="index" class="logo">
                             <img src="~/images/icon/logo.png" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -72,37 +72,43 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="index.html">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <a asp-area="" asp-controller="Admin" asp-action="index" class="js-arrow">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard
+                            </a>
                         </li>
                         <li>
-                            <a href="Property.html">
-                                <i class="fa fa-building"></i>Property</a>
+                            <a asp-area="" asp-controller="Admin" asp-action="Property">
+                                <i class="fa fa-building"></i>Property
+                            </a>
                         </li>
                         <li>
-                            <a href="User.html">
-                                <i class="fas fa-users"></i>Users</a>
+                            <a asp-area="" asp-controller="Admin" asp-action="User">
+                                <i class="fas fa-users"></i>Users
+                            </a>
                         </li>
                         <li>
-                            <a href="New.html">
-                                <i class="fas fa-newspaper"></i>News</a>
+                            <a asp-area="" asp-controller="Admin" asp-action="New">
+                                <i class="fas fa-newspaper"></i>News
+                            </a>
                         </li>
                         <li>
-                            <a href="calendar.html">
-                                <i class="fas fa-calendar-alt"></i>Calendar</a>
+                            <a asp-area="" asp-controller="Admin" asp-action="calendar">
+                                <i class="fas fa-calendar-alt"></i>Calendar
+                            </a>
                         </li>
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
+                            <a asp-area="" asp-controller="Admin" asp-action="Property" class="js-arrow">
+                                <i class="fas fa-copy"></i>Pages
+                            </a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="login.html">Login</a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="login">Login</a>
                                 </li>
                                 <li>
-                                    <a href="register.html">Register</a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="register">Register</a>
                                 </li>
                                 <li>
-                                    <a href="forget-pass.html">Forget Password</a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="ForgetPass">Forget Password</a>
                                 </li>
                             </ul>
                         </li>
@@ -110,12 +116,12 @@
                 </div>
             </nav>
         </header>
-        <!-- END HEADER MOBILE-->
 
+        <!-- END HEADER MOBILE-->
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <a asp-area="" asp-controller="Admin" asp-action="index">
                     <img src="~/images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
@@ -123,37 +129,43 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
-                            <a class="js-arrow" href="index.html">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <a asp-area="" asp-controller="Admin" asp-action="index" class="js-arrow">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard
+                            </a>
                         </li>
                         <li>
-                            <a href="Property.html">
-                                <i class="fa fa-building"></i>Property</a>
+                            <a asp-area="" asp-controller="Admin" asp-action="Property">
+                                <i class="fas fa-chart-bar"></i>Property
+                            </a>
                         </li>
                         <li>
-                            <a href="User.html">
-                                <i class="fas fa-users"></i>Users</a>
+                            <a asp-area="" asp-controller="Admin" asp-action="User">
+                                <i class="fas fa-users"></i>Users
+                            </a>
                         </li>
                         <li>
-                            <a href="New.html">
-                                <i class="fas fa-newspaper"></i>News</a>
+                            <a asp-area="" asp-controller="Admin" asp-action="New">
+                                <i class="fas fa-newspaper"></i>News
+                            </a>
                         </li>
                         <li class="active">
-                            <a href="calendar.html">
-                                <i class="fas fa-calendar-alt"></i>Calendar</a>
+                            <a asp-area="" asp-controller="Admin" asp-action="calendar">
+                                <i class="fas fa-calendar-alt"></i>Calendar
+                            </a>
                         </li>
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
+                            <a asp-area="" asp-controller="Admin" asp-action="AddProperty" class="js-arrow">
+                                <i class="fas fa-copy"></i>Pages
+                            </a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="login.html">Login</a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="Login"></a>
                                 </li>
                                 <li>
-                                    <a href="register.html">Register</a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="register"></a>
                                 </li>
                                 <li>
-                                    <a href="forget-pass.html">Forget Password</a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="ForgetPass"></a>
                                 </li>
                             </ul>
                         </li>
@@ -162,7 +174,6 @@
             </div>
         </aside>
         <!-- END MENU SIDEBAR-->
-
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
@@ -172,7 +183,7 @@
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
                                 <input class="au-input au-input--xl" type="text" name="search"
-                                    placeholder="Search for datas &amp; reports..." />
+                                       placeholder="Search for datas &amp; reports..." />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
@@ -184,30 +195,32 @@
                                             <img src="~/images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="card.html">john doe</a>
+                                            <a asp-area="" asp-controller="Admin" asp-action="card" class="js-acc-btn">John Doe</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
-                                                    <a href="card.html">
+                                                    <a asp-area="" asp-controller="Admin" asp-action="card">
                                                         <img src="~/images/icon/avatar-01.jpg" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="card.html">john doe</a>
+                                                        <a asp-area="" asp-controller="Admin" asp-action="card">john doe</a>
                                                     </h5>
                                                     <span class="email">johndoe@example.com</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="card.html">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                    <a asp-area="" asp-controller="Admin" asp-action="card">
+                                                        <i class="zmdi zmdi-account"></i>Account
+                                                    </a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="login.html">
-                                                        <i class="zmdi zmdi-power"></i>Logout</a>
+                                                    <a asp-area="" asp-controller="Admin" asp-action="Login">
+                                                        <i class="zmdi zmdi-power"></i>Logout
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -219,7 +232,6 @@
                 </div>
             </header>
             <!-- HEADER DESKTOP-->
-
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
@@ -237,7 +249,8 @@
                                                 <div class="external-event bg-success text-white">Lunch</div>
                                                 <div class="external-event bg-warning text-black">Go home</div>
                                                 <div class="external-event bg-info text-white">Do homework</div>
-                                                <div class="external-event bg-primary text-white">Work on UI design
+                                                <div class="external-event bg-primary text-white">
+                                                    Work on UI design
                                                 </div>
                                                 <div class="external-event bg-danger text-white">Sleep tight</div>
                                                 <div class="checkbox">
@@ -258,26 +271,41 @@
                                         <div class="card-body">
                                             <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
                                                 <ul class="fc-color-picker" id="color-chooser">
-                                                    <li><a class="text-primary" href="#"><i
-                                                                class="fas fa-square"></i></a></li>
-                                                    <li><a class="text-warning" href="#"><i
-                                                                class="fas fa-square"></i></a></li>
-                                                    <li><a class="text-success" href="#"><i
-                                                                class="fas fa-square"></i></a></li>
-                                                    <li><a class="text-danger" href="#"><i
-                                                                class="fas fa-square"></i></a></li>
-                                                    <li><a class="text-muted" href="#"><i class="fas fa-square"></i></a>
+                                                    <li>
+                                                        <a class="text-primary" href="#">
+                                                            <i class="fas fa-square"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="text-warning" href="#">
+                                                            <i class="fas fa-square"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="text-success" href="#">
+                                                            <i class="fas fa-square"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="text-danger" href="#">
+                                                            <i class="fas fa-square"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="text-muted" href="#"><i class="fas fa-square"></i></a>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <!-- /btn-group -->
                                             <div class="input-group">
                                                 <input id="new-event" type="text" class="form-control"
-                                                    placeholder="Event Title">
+                                                       placeholder="Event Title">
 
                                                 <div class="input-group-append">
                                                     <button id="add-new-event" type="button"
-                                                        class="btn btn-primary">Add</button>
+                                                            class="btn btn-primary">
+                                                        Add
+                                                    </button>
                                                 </div>
                                                 <!-- /btn-group -->
                                             </div>

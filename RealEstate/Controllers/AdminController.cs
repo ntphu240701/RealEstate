@@ -16,7 +16,15 @@ namespace RealEstate.Controllers
         {
             return View();
         }
+        public IActionResult EditProperty()
+        {
+            return View();
+        }
         public IActionResult PropertyDetail()
+        {
+            return View();
+        }
+        public IActionResult User()
         {
             return View();
         }
@@ -33,6 +41,18 @@ namespace RealEstate.Controllers
             return View();
         }
         public IActionResult Calendar()
+        {
+            return View();
+        }
+        public IActionResult Login()
+        {
+            return View();
+        }
+        public IActionResult Register()
+        {
+            return View();
+        }
+        public IActionResult ForgetPass()
         {
             return View();
         }
