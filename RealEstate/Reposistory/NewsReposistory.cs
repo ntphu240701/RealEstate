@@ -8,6 +8,8 @@ namespace RealEstate.Reposistory
         public List<News> GetAll();
 
         public List<News> GetTop3();
+
+        public News GetById(int Id);
     }
 
     public class NewsReposistory : INewsReposistory
@@ -26,6 +28,11 @@ namespace RealEstate.Reposistory
         public List<News> GetTop3()
         {
             return _ctx.News.Include(x => x.Images).OrderByDescending(x => x.Id).Take(3).ToList();
+        }
+
+        public News GetById(int Id)
+        {
+            return _ctx.News.Where(x=>x.Id==Id).SingleOrDefault();
         }
     }
 }

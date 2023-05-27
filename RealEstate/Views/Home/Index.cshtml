@@ -305,7 +305,7 @@
                                 <div class="card-header-d">
                                     <div class="card-title-d align-self-center">
                                         <h3 class="title-d">
-                                            <a asp-area="" asp-controller="Home" asp-action="Agent" class="link-two">
+                                            <a asp-area="" asp-controller="Home" asp-action="Agent" asp-route-id="@obj.Id" class="link-two">
                                                 @obj.Name
                                             </a>
                                         </h3>
@@ -398,7 +398,7 @@
                                 <div class="card-header-b">                            
                                     <div class="card-title-b">
                                         <h2 class="title-2">
-                                            <a asp-area="" asp-controller="Home" asp-action="New">
+                                            <a asp-area="" asp-controller="Home" asp-action="New" asp-route-id="@obj.Id">
                                                 @obj.Title
                                             </a>
                                         </h2>
