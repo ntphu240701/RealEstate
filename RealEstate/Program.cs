@@ -5,11 +5,14 @@ using RealEstate.Reposistory;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddRazorPages()
+    .AddRazorRuntimeCompilation();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<Ntphu24072001CnaContext>(options => options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefautConnection") 
+        builder.Configuration.GetConnectionString("DefautConnection")
         ));//setup syntax to use DbContext 
 
 builder.Services.AddTransient<IPostReposistory, PostReposistory>();
@@ -37,6 +40,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=UserDetail}/{id?}");
+    pattern: "{controller=Admin}/{action=New}/{id?}");
+
 
 app.Run();

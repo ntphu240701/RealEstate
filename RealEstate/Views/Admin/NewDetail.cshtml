@@ -43,7 +43,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
+                        <a asp-area="" asp-controller="Admin" asp-action="index" class="logo">
                             <img src="~/images/icon/logo.png" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -58,43 +58,43 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="index.html">
+                            <a asp-area="" asp-controller="Admin" asp-action="index" class="js-arrow">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
                             </a>
                         </li>
                         <li>
-                            <a href="Property.html">
+                            <a asp-area="" asp-controller="Admin" asp-action="Property">
                                 <i class="fa fa-building"></i>Property
                             </a>
                         </li>
                         <li>
-                            <a href="User.html">
+                            <a asp-area="" asp-controller="Admin" asp-action="User">
                                 <i class="fas fa-users"></i>Users
                             </a>
                         </li>
                         <li>
-                            <a href="New.html">
+                            <a asp-area="" asp-controller="Admin" asp-action="New">
                                 <i class="fas fa-newspaper"></i>News
                             </a>
                         </li>
                         <li>
-                            <a href="calendar.html">
+                            <a asp-area="" asp-controller="Admin" asp-action="calendar">
                                 <i class="fas fa-calendar-alt"></i>Calendar
                             </a>
                         </li>
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
+                            <a asp-area="" asp-controller="Admin" asp-action="Property" class="js-arrow">
                                 <i class="fas fa-copy"></i>Pages
                             </a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="login.html">Login</a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="login">Login</a>
                                 </li>
                                 <li>
-                                    <a href="register.html">Register</a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="register">Register</a>
                                 </li>
                                 <li>
-                                    <a href="forget-pass.html">Forget Password</a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="ForgetPass">Forget Password</a>
                                 </li>
                             </ul>
                         </li>
@@ -102,11 +102,12 @@
                 </div>
             </nav>
         </header>
+
         <!-- END HEADER MOBILE-->
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <a asp-area="" asp-controller="Admin" asp-action="index">
                     <img src="~/images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
@@ -114,43 +115,43 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
-                            <a class="js-arrow" href="index.html">
+                            <a asp-area="" asp-controller="Admin" asp-action="index" class="js-arrow">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
                             </a>
                         </li>
                         <li>
-                            <a href="Property.html">
+                            <a asp-area="" asp-controller="Admin" asp-action="Property">
                                 <i class="fas fa-chart-bar"></i>Property
                             </a>
                         </li>
                         <li>
-                            <a href="User.html">
+                            <a asp-area="" asp-controller="Admin" asp-action="User">
                                 <i class="fas fa-users"></i>Users
                             </a>
                         </li>
                         <li class="active">
-                            <a href="New.html">
+                            <a asp-area="" asp-controller="Admin" asp-action="New">
                                 <i class="fas fa-newspaper"></i>News
                             </a>
                         </li>
                         <li>
-                            <a href="calendar.html">
+                            <a asp-area="" asp-controller="Admin" asp-action="calendar">
                                 <i class="fas fa-calendar-alt"></i>Calendar
                             </a>
                         </li>
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
+                            <a asp-area="" asp-controller="Admin" asp-action="AddProperty" class="js-arrow">
                                 <i class="fas fa-copy"></i>Pages
                             </a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="login.html">Login</a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="Login"></a>
                                 </li>
                                 <li>
-                                    <a href="register.html">Register</a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="register"></a>
                                 </li>
                                 <li>
-                                    <a href="forget-pass.html">Forget Password</a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="ForgetPass"></a>
                                 </li>
                             </ul>
                         </li>
@@ -180,30 +181,30 @@
                                             <img src="~/images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="card.html">john doe</a>
+                                            <a asp-area="" asp-controller="Admin" asp-action="card" class="js-acc-btn">John Doe</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
-                                                    <a href="card.html">
+                                                    <a asp-area="" asp-controller="Admin" asp-action="card">
                                                         <img src="~/images/icon/avatar-01.jpg" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="card.html">john doe</a>
+                                                        <a asp-area="" asp-controller="Admin" asp-action="card">john doe</a>
                                                     </h5>
                                                     <span class="email">johndoe@example.com</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="card.html">
+                                                    <a asp-area="" asp-controller="Admin" asp-action="card">
                                                         <i class="zmdi zmdi-account"></i>Account
                                                     </a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="login.html">
+                                                    <a asp-area="" asp-controller="Admin" asp-action="Login">
                                                         <i class="zmdi zmdi-power"></i>Logout
                                                     </a>
                                                 </div>
@@ -218,7 +219,6 @@
             </header>
             <!-- HEADER DESKTOP-->
             <!-- MAIN CONTENT-->
-            <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -228,9 +228,15 @@
                                 <div class="card-header-prop">
                                     <div class="page-titles">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="New.html">News</a></li>
+                                            <li class="breadcrumb-item">
+                                                <a asp-area="" asp-controller="Admin" asp-action="New">
+                                                    News
+                                                </a>
+                                            </li>
                                             <li class="breadcrumb-item active">
-                                                <a href="#">NewDetail</a>
+                                                <a asp-area="" asp-controller="Admin" asp-action="NewDetail">
+                                                    NewDetail
+                                                </a>
                                             </li>
                                         </ol>
                                         <button type="submit"
@@ -375,7 +381,7 @@
                 <script src="~/vendor/select2/select2.min.js">
                 </script>
                 <script src="~/js_admin/swiper-bundle.min.js"></script>
-                
+
                 <!-- Main JS-->
                 <script src="~/js_admin/main_admin.js"></script>
                 <script src="~/js_admin/swiper.js"></script>

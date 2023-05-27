@@ -43,8 +43,8 @@
                 <div class="login-wrap">
                     <div class="login-content">
                         <div class="login-logo">
-                            <a href="#">
-                                <img src="~/cssimages/icon/logo.png" alt="CoolAdmin">
+                            <a asp-area="" asp-controller="Admin" asp-action="register"></a>
+                            <img src="~/cssimages/icon/logo.png" alt="CoolAdmin">
                             </a>
                         </div>
                         <div class="login-form">
@@ -89,7 +89,8 @@
                             <div class="register-link">
                                 <p>
                                     Already have account?
-                                    <a href="#">Sign In</a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="Login"></a>
+                                    Sign In</a>
                                 </p>
                             </div>
                         </div>
