@@ -9,9 +9,7 @@ namespace RealEstate.Reposistory
 
         public List<Seller> GetTop3();
 
-        /*public List<Seller> GetById();*/
-
-
+        public Seller GetById(int Id);
     }
 
     public class SellerReposistory : ISellerReposistory
@@ -32,9 +30,9 @@ namespace RealEstate.Reposistory
             return _ctx.Sellers.Include(x=>x.Images).OrderByDescending(x => x.Id).Take(3).ToList();
         }
 
-        /*public List<Seller> GetById()
+        public Seller GetById(int Id)
         {
-            return _ctx.Sellers.Select(x => x.Id).ToList();
-        }*/
+            return _ctx.Sellers.Where(x => x.Id == Id).SingleOrDefault();
+        }
     }
 }

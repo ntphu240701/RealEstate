@@ -56,9 +56,11 @@ namespace RealEstate.Controllers
             return View("AllProperties", objPropertyList);
         }
 
-        public IActionResult Agent()
+        public IActionResult Agent(int id)
         {
-            return View();
+            var objSeller = _sellerReposistory.GetById(id);
+
+            return View("Agent", objSeller);
         }
 
         public IActionResult AllAgents()
@@ -68,9 +70,11 @@ namespace RealEstate.Controllers
             return View("AllAgents", objSellerList);            
         }
 
-        public IActionResult New()
+        public IActionResult New(int id)
         {
-            return View();
+            var objNew = _newsReposistory.GetById(id);
+
+            return View("New", objNew);
         }
 
         public IActionResult AllNews()
@@ -121,6 +125,11 @@ namespace RealEstate.Controllers
         }
 
         public IActionResult Login() 
+        {
+            return View();
+        }
+
+        public IActionResult UserDetail()
         {
             return View();
         }

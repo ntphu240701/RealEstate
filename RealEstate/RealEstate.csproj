@@ -651,4 +651,8 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\UserDetail\" />
+  </ItemGroup>
+
 </Project>
