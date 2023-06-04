@@ -7,7 +7,7 @@ namespace RealEstate.Reposistory
     {
         public List<Post> GetAll();
 
-        public List<Post> GetTop3();
+        public List<Post> GetTop3(); 
 
         public Boolean Create(Post post);
 

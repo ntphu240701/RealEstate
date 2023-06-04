@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using RealEstate.Models;
 using RealEstate.Reposistory;
 using System.Diagnostics;
@@ -12,18 +13,26 @@ namespace RealEstate.Controllers
         private IPropertyReposistory _propertyReposistory;
         private INewsReposistory _newsReposistory;
         private IUserReposistory _userReposistory;
+        private ICategoryReposistory _categoryReposistory;
+        private ILocationReposistory _locationReposistory;  
 
         public HomeController(IPostReposistory postReposistory, 
                               ISellerReposistory sellerReposistory, 
                               IPropertyReposistory propertyReposistory, 
                               INewsReposistory newsReposistory,
-                              IUserReposistory userReposistory) //store all connection string and table top retrieve data
+                              IUserReposistory userReposistory,
+                              ICategoryReposistory categoryReposistory,
+                              ILocationReposistory locationReposistory
+            ) 
+            //store all connection string and table top retrieve data
         {
             _postReposistory = postReposistory;
             _sellerReposistory = sellerReposistory;
             _propertyReposistory = propertyReposistory;
             _newsReposistory = newsReposistory;
             _userReposistory = userReposistory;
+            _categoryReposistory = categoryReposistory;
+            _locationReposistory = locationReposistory; 
         }        
 
         //GET HOME
@@ -47,6 +56,12 @@ namespace RealEstate.Controllers
             model.MyUser = objUserList;
 
             return View(model);
+        }
+
+        public IActionResult GetPosts()
+        {
+            List<Post> posts = _categoryReposistory.GetPosts();
+            return View("Buy", posts);
         }
 
         public IActionResult AllProperties()
@@ -80,19 +95,55 @@ namespace RealEstate.Controllers
             return View("AllNews", objNewsList);
         }
 
+
         public IActionResult Project()
-        { 
-            return View();            
+        {
+            var categories = _categoryReposistory.GetProp();
+
+            var location= _locationReposistory.GetPropWLoctation();
+
+            var viewModel = new MyViewModel
+            {
+                Categories = categories,  
+                 Locations = location
+
+            };
+            
+            return View("Project", viewModel);
         }
 
-        public IActionResult ProjectDetail()
-        {            
-            return View();
+        public IActionResult ProjectDetail(int id)
+        {
+            //var propDetail = _propertyReposistory.GetById(id);
+
+            //return View("ProjectDetail", propDetail);
+            //var categories = _categoryReposistory.GetProp();
+            var post = _propertyReposistory.GetById(id);
+
+
+            //var viewModel = new MyViewModel
+            //{
+            //   Categories = categories,
+
+            //};
+
+            return View("ProjectDetail", post);
+
         }
 
         public IActionResult Buy() 
         {
-            return View();
+            var categories = _categoryReposistory.GetProp();
+
+            var location = _locationReposistory.GetPropWLoctation();
+
+            var viewModel = new MyViewModel
+            {
+                Categories = categories,
+                Locations = location
+
+            };
+            return View("Buy", viewModel);
         }
 
         public IActionResult BuyDetail()
@@ -102,7 +153,17 @@ namespace RealEstate.Controllers
 
         public IActionResult Rent() 
         {
-            return View();
+            var categories = _categoryReposistory.GetProp();
+
+            var location = _locationReposistory.GetPropWLoctation();
+
+            var viewModel = new MyViewModel
+            {
+                Categories = categories,
+                Locations = location
+
+            };
+            return View("Rent", viewModel);
         }
 
         public IActionResult RentDetail()
@@ -130,5 +191,6 @@ namespace RealEstate.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }
