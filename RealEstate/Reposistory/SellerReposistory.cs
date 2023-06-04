@@ -22,12 +22,12 @@ namespace RealEstate.Reposistory
 
         public List<Seller> GetAll()
         {
-            return _ctx.Sellers.Include(x=>x.Images).ToList();
+            return _ctx.Sellers.Include(x => x.Images).ToList();
         }
 
         public List<Seller> GetTop3()
         {
-            return _ctx.Sellers.Include(x=>x.Images).OrderByDescending(x => x.Id).Take(3).ToList();
+            return _ctx.Sellers.Include(x => x.Images).OrderByDescending(x => x.Id).Take(3).ToList();
         }
 
         public Seller GetById(int Id)
