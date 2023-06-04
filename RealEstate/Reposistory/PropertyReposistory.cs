@@ -1,6 +1,5 @@
 ﻿using RealEstate.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace RealEstate.Reposistory
@@ -29,15 +28,13 @@ namespace RealEstate.Reposistory
         public Property GetPropertyById(int id)
         {
             Property p = _ctx.Properties
-            .Where(x => x.Id == id)
-            .Include(x => x.Posts)
-                .ThenInclude(post => post.Seller)
-            .Include(x => x.Location)
-            .SingleOrDefault();
-
-            //List<Post> posts = p.Posts.ToList();
-
+                .Where(x => x.Id == id)
+                .Include(x => x.Posts)
+                    .ThenInclude(post => post.Seller)
+                .Include(x => x.Location)
+                .SingleOrDefault();
             return p;
+            //List<Post> posts = p.Posts.ToList();  
         }
     }
 }
