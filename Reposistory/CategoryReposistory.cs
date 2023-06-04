@@ -23,15 +23,15 @@ namespace RealEstate.Reposistory
         }
 
         public List<Post> GetPosts()
-        {
-            return _ctx.Posts.Include(p => p.Date).ToList();
+        { 
+                return _ctx.Posts.Include(p => p.Date).ToList();
         }
 
-        public List<Category> GetProp()
+        public List<Category> GetProp() 
         {
             return _ctx.Categories
                 .Include(p => p.Properties)
-                .ToList();
+                .ToList();  
         }
 
     }

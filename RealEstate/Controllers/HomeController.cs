@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using RealEstate.Models;
 using RealEstate.Reposistory;
 using System.Diagnostics;
@@ -8,37 +9,45 @@ namespace RealEstate.Controllers
     public class HomeController : Controller
     {
         private IPostReposistory _postReposistory;
-        private ISellerReposistory _sellerReposistory;        
+        private ISellerReposistory _sellerReposistory;
         private IPropertyReposistory _propertyReposistory;
         private INewsReposistory _newsReposistory;
         private IUserReposistory _userReposistory;
+        private ICategoryReposistory _categoryReposistory;
+        private ILocationReposistory _locationReposistory;
 
-        public HomeController(IPostReposistory postReposistory, 
-                              ISellerReposistory sellerReposistory, 
-                              IPropertyReposistory propertyReposistory, 
+        public HomeController(IPostReposistory postReposistory,
+                              ISellerReposistory sellerReposistory,
+                              IPropertyReposistory propertyReposistory,
                               INewsReposistory newsReposistory,
-                              IUserReposistory userReposistory) //store all connection string and table top retrieve data
+                              IUserReposistory userReposistory,
+                              ICategoryReposistory categoryReposistory,
+                              ILocationReposistory locationReposistory
+            )
+        //store all connection string and retrieve table top data
         {
             _postReposistory = postReposistory;
             _sellerReposistory = sellerReposistory;
             _propertyReposistory = propertyReposistory;
             _newsReposistory = newsReposistory;
             _userReposistory = userReposistory;
-        }        
+            _categoryReposistory = categoryReposistory;
+            _locationReposistory = locationReposistory;
+        }
 
         //GET HOME
         public IActionResult Index()
         {
             HomeModel model = new HomeModel();
 
-            List<Post> objPostList = _postReposistory.GetTop3();            
+            List<Post> objPostList = _postReposistory.GetTop3();
             model.MyPost = objPostList;
 
             List<Property> objPropertyList = _propertyReposistory.GetAll();
             model.MyProp = objPropertyList;
 
-            List<Seller> objSellerList = _sellerReposistory.GetTop3();            
-            model.MySeller = objSellerList;            
+            List<Seller> objSellerList = _sellerReposistory.GetTop3();
+            model.MySeller = objSellerList;
 
             List<News> objNewsList = _newsReposistory.GetTop3();
             model.MyNews = objNewsList;
@@ -49,32 +58,34 @@ namespace RealEstate.Controllers
             return View(model);
         }
 
+        public IActionResult GetPosts()
+        {
+            List<Post> posts = _categoryReposistory.GetPosts();
+            return View("Buy", posts);
+        }
+
         public IActionResult AllProperties()
-        {           
-            var objPropertyList = _propertyReposistory.GetAll();
+        {
+            var objPropertyList = _postReposistory.GetAll();
 
             return View("AllProperties", objPropertyList);
         }
 
-        public IActionResult Agent(int id)
+        public IActionResult Agent()
         {
-            var objSeller = _sellerReposistory.GetById(id);
-
-            return View("Agent", objSeller);
+            return View();
         }
 
         public IActionResult AllAgents()
         {
             var objSellerList = _sellerReposistory.GetAll();
 
-            return View("AllAgents", objSellerList);            
+            return View("AllAgents", objSellerList);
         }
 
-        public IActionResult New(int id)
+        public IActionResult New()
         {
-            var objNew = _newsReposistory.GetById(id);
-
-            return View("New", objNew);
+            return View();
         }
 
         public IActionResult AllNews()
@@ -84,34 +95,73 @@ namespace RealEstate.Controllers
             return View("AllNews", objNewsList);
         }
 
+
         public IActionResult Project()
-        { 
-            return View();            
-        }
-
-        public IActionResult ProjectDetail()
-        {            
-            return View();
-        }
-
-        public IActionResult Buy() 
         {
-            return View();
+            var categories = _categoryReposistory.GetProp();
+
+            var location = _locationReposistory.GetPropWLoctation();
+
+            var viewModel = new MyViewModel
+            {
+                Categories = categories,
+                Locations = location
+
+            };
+
+            return View("Project", viewModel);
         }
 
-        public IActionResult BuyDetail()
+        public IActionResult PropertyDetail(int id)
         {
-            return View();
+
+            Property property = _propertyReposistory.GetPropertyById(id);
+
+            return View("PropertyDetail", property);
         }
 
-        public IActionResult Rent() 
+        public IActionResult Buy()
         {
-            return View();
+            var categories = _categoryReposistory.GetProp();
+
+            var location = _locationReposistory.GetPropWLoctation();
+
+            var viewModel = new MyViewModel
+            {
+                Categories = categories,
+                Locations = location
+
+            };
+            return View("Buy", viewModel);
         }
 
-        public IActionResult RentDetail()
+        public IActionResult BuyDetail(int id)
         {
-            return View();
+            Property property = _propertyReposistory.GetPropertyById(id);
+
+            return View("BuyDetail", property);
+        }
+
+        public IActionResult Rent()
+        {
+            var categories = _categoryReposistory.GetProp();
+
+            var location = _locationReposistory.GetPropWLoctation();
+
+            var viewModel = new MyViewModel
+            {
+                Categories = categories,
+                Locations = location
+
+            };
+            return View("Rent", viewModel);
+        }
+
+        public IActionResult RentDetail(int id)
+        {
+            Property property = _propertyReposistory.GetPropertyById(id);
+
+            return View("RentDetail", property);
         }
 
         public IActionResult About()
@@ -124,12 +174,7 @@ namespace RealEstate.Controllers
             return View();
         }
 
-        public IActionResult Login() 
-        {
-            return View();
-        }
-
-        public IActionResult UserDetail()
+        public IActionResult Login()
         {
             return View();
         }
@@ -139,5 +184,6 @@ namespace RealEstate.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }
