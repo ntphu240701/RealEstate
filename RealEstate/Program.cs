@@ -5,9 +5,6 @@ using RealEstate.Reposistory;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddRazorPages()
-    .AddRazorRuntimeCompilation();
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -20,13 +17,15 @@ builder.Services.AddTransient<ISellerReposistory, SellerReposistory>();
 builder.Services.AddTransient<IPropertyReposistory, PropertyReposistory>();
 builder.Services.AddTransient<INewsReposistory, NewsReposistory>();
 builder.Services.AddTransient<IUserReposistory, UserReposistory>();
+builder.Services.AddTransient<ICategoryReposistory, CategoryReposistory>();
+builder.Services.AddTransient<ILocationReposistory, LocationReposistory>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Admin/Error");
+    app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
@@ -41,6 +40,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
 
 app.Run();

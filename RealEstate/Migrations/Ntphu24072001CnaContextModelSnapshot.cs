@@ -23,423 +23,423 @@ namespace RealEstate.Migrations
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("RealEstate.Models.Admin", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("PassWord")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("PassWord")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("UserName")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("Admin", (string)null);
-                });
+                b.ToTable("Admin", (string)null);
+            });
 
             modelBuilder.Entity("RealEstate.Models.Category", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ParentId")
-                        .HasColumnType("int")
-                        .HasColumnName("Parent_Id");
+                b.Property<int?>("ParentId")
+                    .HasColumnType("int")
+                    .HasColumnName("Parent_Id");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("ParentId");
+                b.HasIndex("ParentId");
 
-                    b.ToTable("Category", (string)null);
-                });
+                b.ToTable("Category", (string)null);
+            });
 
             modelBuilder.Entity("RealEstate.Models.ChuDauTu", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("ChuDauTu", (string)null);
-                });
+                b.ToTable("ChuDauTu", (string)null);
+            });
 
             modelBuilder.Entity("RealEstate.Models.Image", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Image1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Image");
+                b.Property<string>("Image1")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)")
+                    .HasColumnName("Image");
 
-                    b.Property<int>("RealEstateId")
-                        .HasColumnType("int")
-                        .HasColumnName("RealEstate_Id");
+                b.Property<int>("RealEstateId")
+                    .HasColumnType("int")
+                    .HasColumnName("RealEstate_Id");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("RealEstateId");
+                b.HasIndex("RealEstateId");
 
-                    b.ToTable("Images");
-                });
+                b.ToTable("Images");
+            });
 
             modelBuilder.Entity("RealEstate.Models.Location", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasComment("Mã tỉnh thành");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int")
+                    .HasComment("Mã tỉnh thành");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ParentId")
-                        .HasColumnType("int")
-                        .HasColumnName("Parent_Id")
-                        .HasComment("Mã quận huyện");
+                b.Property<int?>("ParentId")
+                    .HasColumnType("int")
+                    .HasColumnName("Parent_Id")
+                    .HasComment("Mã quận huyện");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("ParentId");
+                b.HasIndex("ParentId");
 
-                    b.ToTable("Location", (string)null);
-                });
+                b.ToTable("Location", (string)null);
+            });
 
             modelBuilder.Entity("RealEstate.Models.LoginUser", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PassWord")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("PassWord")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Phone")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int")
-                        .HasComment("0: inactive \r\n1: active");
+                b.Property<int>("Status")
+                    .HasColumnType("int")
+                    .HasComment("0: inactive \r\n1: active");
 
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("UserName")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("LoginUser", (string)null);
-                });
+                b.ToTable("LoginUser", (string)null);
+            });
 
             modelBuilder.Entity("RealEstate.Models.News", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Contents")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Contents")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime");
+                b.Property<DateTime>("Date")
+                    .HasColumnType("datetime");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("News");
-                });
+                b.ToTable("News");
+            });
 
             modelBuilder.Entity("RealEstate.Models.Post", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AdminId")
-                        .HasColumnType("int")
-                        .HasColumnName("Admin_Id");
+                b.Property<int>("AdminId")
+                    .HasColumnType("int")
+                    .HasColumnName("Admin_Id");
 
-                    b.Property<DateTime?>("Date")
-                        .HasColumnType("datetime")
-                        .HasComment("Ngày viết");
+                b.Property<DateTime?>("Date")
+                    .HasColumnType("datetime")
+                    .HasComment("Ngày viết");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Description")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("High")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("High")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Low")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Low")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("PublicDate")
-                        .HasColumnType("datetime")
-                        .HasComment("Ngày đăng");
+                b.Property<DateTime?>("PublicDate")
+                    .HasColumnType("datetime")
+                    .HasComment("Ngày đăng");
 
-                    b.Property<int>("RealEstateId")
-                        .HasColumnType("int")
-                        .HasColumnName("RealEstate_Id");
+                b.Property<int>("RealEstateId")
+                    .HasColumnType("int")
+                    .HasColumnName("RealEstate_Id");
 
-                    b.Property<int>("SellerId")
-                        .HasColumnType("int")
-                        .HasColumnName("Seller_Id");
+                b.Property<int>("SellerId")
+                    .HasColumnType("int")
+                    .HasColumnName("Seller_Id");
 
-                    b.Property<string>("ShortDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("ShortDescription")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int")
-                        .HasComment("0: unPublic  1: Public");
+                b.Property<int>("Status")
+                    .HasColumnType("int")
+                    .HasComment("0: unPublic  1: Public");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("AdminId");
+                b.HasIndex("AdminId");
 
-                    b.HasIndex("RealEstateId");
+                b.HasIndex("RealEstateId");
 
-                    b.HasIndex("SellerId");
+                b.HasIndex("SellerId");
 
-                    b.ToTable("Post", (string)null);
-                });
+                b.ToTable("Post", (string)null);
+            });
 
             modelBuilder.Entity("RealEstate.Models.Property", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int")
-                        .HasColumnName("Category_Id");
+                b.Property<int>("CategoryId")
+                    .HasColumnType("int")
+                    .HasColumnName("Category_Id");
 
-                    b.Property<int>("ChuDauTuId")
-                        .HasColumnType("int")
-                        .HasColumnName("ChuDauTu_Id");
+                b.Property<int>("ChuDauTuId")
+                    .HasColumnType("int")
+                    .HasColumnName("ChuDauTu_Id");
 
-                    b.Property<string>("DienTich")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("DienTich")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("LocationId")
-                        .HasColumnType("int")
-                        .HasColumnName("Location_Id");
+                b.Property<int>("LocationId")
+                    .HasColumnType("int")
+                    .HasColumnName("Location_Id");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Price")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                b.HasIndex("CategoryId");
 
-                    b.HasIndex("ChuDauTuId");
+                b.HasIndex("ChuDauTuId");
 
-                    b.HasIndex("LocationId");
+                b.HasIndex("LocationId");
 
-                    b.ToTable("RealEstate", (string)null);
-                });
+                b.ToTable("RealEstate", (string)null);
+            });
 
             modelBuilder.Entity("RealEstate.Models.Seller", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Address")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Email")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PassWord")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("PassWord")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Phone")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("UserName")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("Seller", (string)null);
-                });
+                b.ToTable("Seller", (string)null);
+            });
 
             modelBuilder.Entity("RealEstate.Models.Category", b =>
-                {
-                    b.HasOne("RealEstate.Models.Category", "Parent")
-                        .WithMany("InverseParent")
-                        .HasForeignKey("ParentId")
-                        .HasConstraintName("FK_Category_Category");
+            {
+                b.HasOne("RealEstate.Models.Category", "Parent")
+                    .WithMany("InverseParent")
+                    .HasForeignKey("ParentId")
+                    .HasConstraintName("FK_Category_Category");
 
-                    b.Navigation("Parent");
-                });
+                b.Navigation("Parent");
+            });
 
             modelBuilder.Entity("RealEstate.Models.Image", b =>
-                {
-                    b.HasOne("RealEstate.Models.Property", "Property")
-                        .WithMany("Images")
-                        .HasForeignKey("RealEstateId")
-                        .IsRequired()
-                        .HasConstraintName("FK_Images_RealEstate");
+            {
+                b.HasOne("RealEstate.Models.Property", "Property")
+                    .WithMany("Images")
+                    .HasForeignKey("RealEstateId")
+                    .IsRequired()
+                    .HasConstraintName("FK_Images_RealEstate");
 
-                    b.Navigation("Property");
-                });
+                b.Navigation("Property");
+            });
 
             modelBuilder.Entity("RealEstate.Models.Location", b =>
-                {
-                    b.HasOne("RealEstate.Models.Location", "Parent")
-                        .WithMany("InverseParent")
-                        .HasForeignKey("ParentId")
-                        .HasConstraintName("FK_Location_Location");
+            {
+                b.HasOne("RealEstate.Models.Location", "Parent")
+                    .WithMany("InverseParent")
+                    .HasForeignKey("ParentId")
+                    .HasConstraintName("FK_Location_Location");
 
-                    b.Navigation("Parent");
-                });
+                b.Navigation("Parent");
+            });
 
             modelBuilder.Entity("RealEstate.Models.Post", b =>
-                {
-                    b.HasOne("RealEstate.Models.Admin", "Admin")
-                        .WithMany("Posts")
-                        .HasForeignKey("AdminId")
-                        .IsRequired()
-                        .HasConstraintName("FK_Post_Admin");
+            {
+                b.HasOne("RealEstate.Models.Admin", "Admin")
+                    .WithMany("Posts")
+                    .HasForeignKey("AdminId")
+                    .IsRequired()
+                    .HasConstraintName("FK_Post_Admin");
 
-                    b.HasOne("RealEstate.Models.Property", "Property")
-                        .WithMany("Posts")
-                        .HasForeignKey("RealEstateId")
-                        .IsRequired()
-                        .HasConstraintName("FK_Post_RealEstate");
+                b.HasOne("RealEstate.Models.Property", "Property")
+                    .WithMany("Posts")
+                    .HasForeignKey("RealEstateId")
+                    .IsRequired()
+                    .HasConstraintName("FK_Post_RealEstate");
 
-                    b.HasOne("RealEstate.Models.Seller", "Seller")
-                        .WithMany("Posts")
-                        .HasForeignKey("SellerId")
-                        .IsRequired()
-                        .HasConstraintName("FK_Post_Seller");
+                b.HasOne("RealEstate.Models.Seller", "Seller")
+                    .WithMany("Posts")
+                    .HasForeignKey("SellerId")
+                    .IsRequired()
+                    .HasConstraintName("FK_Post_Seller");
 
-                    b.Navigation("Admin");
+                b.Navigation("Admin");
 
-                    b.Navigation("Property");
+                b.Navigation("Property");
 
-                    b.Navigation("Seller");
-                });
+                b.Navigation("Seller");
+            });
 
             modelBuilder.Entity("RealEstate.Models.Property", b =>
-                {
-                    b.HasOne("RealEstate.Models.Category", "Category")
-                        .WithMany("Property")
-                        .HasForeignKey("CategoryId")
-                        .IsRequired()
-                        .HasConstraintName("FK_RealEstate_Category");
+            {
+                b.HasOne("RealEstate.Models.Category", "Category")
+                    .WithMany("Property")
+                    .HasForeignKey("CategoryId")
+                    .IsRequired()
+                    .HasConstraintName("FK_RealEstate_Category");
 
-                    b.HasOne("RealEstate.Models.ChuDauTu", "ChuDauTu")
-                        .WithMany("Property")
-                        .HasForeignKey("ChuDauTuId")
-                        .IsRequired()
-                        .HasConstraintName("FK_RealEstate_ChuDauTu1");
+                b.HasOne("RealEstate.Models.ChuDauTu", "ChuDauTu")
+                    .WithMany("Property")
+                    .HasForeignKey("ChuDauTuId")
+                    .IsRequired()
+                    .HasConstraintName("FK_RealEstate_ChuDauTu1");
 
-                    b.HasOne("RealEstate.Models.Location", "Location")
-                        .WithMany("Property")
-                        .HasForeignKey("LocationId")
-                        .IsRequired()
-                        .HasConstraintName("FK_RealEstate_Location");
+                b.HasOne("RealEstate.Models.Location", "Location")
+                    .WithMany("Property")
+                    .HasForeignKey("LocationId")
+                    .IsRequired()
+                    .HasConstraintName("FK_RealEstate_Location");
 
-                    b.Navigation("Category");
+                b.Navigation("Category");
 
-                    b.Navigation("ChuDauTu");
+                b.Navigation("ChuDauTu");
 
-                    b.Navigation("Location");
-                });
+                b.Navigation("Location");
+            });
 
             modelBuilder.Entity("RealEstate.Models.Admin", b =>
-                {
-                    b.Navigation("Posts");
-                });
+            {
+                b.Navigation("Posts");
+            });
 
             modelBuilder.Entity("RealEstate.Models.Category", b =>
-                {
-                    b.Navigation("InverseParent");
+            {
+                b.Navigation("InverseParent");
 
-                    b.Navigation("Property");
-                });
+                b.Navigation("Property");
+            });
 
             modelBuilder.Entity("RealEstate.Models.ChuDauTu", b =>
-                {
-                    b.Navigation("Property");
-                });
+            {
+                b.Navigation("Property");
+            });
 
             modelBuilder.Entity("RealEstate.Models.Location", b =>
-                {
-                    b.Navigation("InverseParent");
+            {
+                b.Navigation("InverseParent");
 
-                    b.Navigation("Property");
-                });
+                b.Navigation("Property");
+            });
 
             modelBuilder.Entity("RealEstate.Models.Property", b =>
-                {
-                    b.Navigation("Images");
+            {
+                b.Navigation("Images");
 
-                    b.Navigation("Posts");
-                });
+                b.Navigation("Posts");
+            });
 
             modelBuilder.Entity("RealEstate.Models.Seller", b =>
-                {
-                    b.Navigation("Posts");
-                });
+            {
+                b.Navigation("Posts");
+            });
 #pragma warning restore 612, 618
         }
     }
