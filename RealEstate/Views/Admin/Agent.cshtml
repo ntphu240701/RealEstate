@@ -27,6 +27,7 @@
                                                 <td>Phone</td>
                                                 <td>Address</td>
                                                 <td>Role</td>
+                                                <td></td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -38,7 +39,7 @@
                                                         <ul class="list-inline">
                                                             <li class="list-inline-item">
                                                                 <img alt="User Image" class="table-avatar"
-                                                                     src="~/img/@imgURL" style="border-radius: 20%">
+                                                                     src="~/img/@imgURL" style="border-radius: 3%; width: 100%">
                                                             </li>
                                                         </ul>
                                                     </td>
@@ -64,6 +65,27 @@
                                                                 <option value="">Watch</option>
                                                             </select>
                                                             <div class="dropDownSelect2"></div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="table-data-feature">
+                                                            <button class="item" data-toggle="tooltip"
+                                                                    data-placement="top" title="Detail">
+                                                                <a asp-area="" asp-controller="Admin" asp-action="AgentDetail" asp-route-id="@obj.Id">
+                                                                    <i class="zmdi zmdi-folder"></i>
+                                                                </a>
+                                                            </button>
+                                                            <button class="item" data-toggle="tooltip"
+                                                                    data-placement="top" title="Edit">
+                                                                <a asp-area="" asp-controller="Admin" asp-action="EditAgent" asp-route-id="@obj.Id">
+                                                                    <i class="zmdi zmdi-edit">
+                                                                    </i>
+                                                                </a>
+                                                            </button>
+                                                            <button class="item" data-toggle="tooltip"
+                                                                    data-placement="top" title="Delete">
+                                                                <i class="zmdi zmdi-delete"></i>
+                                                            </button>
                                                         </div>
                                                     </td>
                                                 </tr>

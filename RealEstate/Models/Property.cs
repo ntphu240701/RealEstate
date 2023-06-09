@@ -28,4 +28,5 @@ public partial class Property
     public virtual Location Location { get; set; } = null!;
 
     public virtual ICollection<Post> Posts { get; set; } = new List<Post>(); //exist 
+
 }
