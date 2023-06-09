@@ -1,8 +1,8 @@
-@model RealEstate.Models.Property
+﻿@model RealEstate.Models.Property
 
 @{
     Layout = "~/Views/shared/_layout_admin.cshtml";
-    ViewBag.title = "Property Detail";
+    ViewBag.title = "Property Details";
     ViewBag.active = 2;
 }
 <!-- PAGE CONTAINER-->
@@ -42,13 +42,14 @@
                                 <div class="col-xl-12">
                                     <div class="card bg-primary text-center">
                                         <div class="card-body">
-                                            <h2 class="fs-30 text-white">SALE</h2>
+                                            <h3 class="fs-30 text-white">-- PRICE -- </h3>
                                             <span class="text-white font-w300">
-                                                20099$
+                                                @Model.Price
                                             </span>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="card">
                                         <div class="card-header">
@@ -56,16 +57,18 @@
                                         </div>
                                         <div class="card-body">
                                             <div class="mx-auto d-block">
-                                                <img class="rounded-circle mx-auto d-block"
-                                                     src="~/images/icon/avatar-01.jpg" alt="Card image cap">
-                                                <h5 class="text-sm-center mt-2 mb-1">Hung Luke</h5>
-                                                <div class="location text-sm-center">
-                                                    <i class="fa fa-map-marker"></i> California, United
-                                                    States
-                                                </div>
-                                                <div class="location text-sm-center">
-                                                    <i class="fa fa-phone fa-rotate-90"></i> 0909156999
-                                                </div>
+                                                @foreach (var post in Model.Posts)
+                                                {
+                                                    <img class="rounded-circle mx-auto d-block"
+                                                         src="~/images/icon/avatar-01.jpg" alt="Card image cap">
+                                                    <h5 class="text-sm-center mt-2 mb-1" style="text-transform: uppercase">@post.Seller.Name</h5>
+                                                    <div class="location text-sm-center">
+                                                        <i class="fa fa-map-marker" style="text-transform: capitalize"></i> @post.Seller.Address
+                                                    </div>
+                                                    <div class="location text-sm-center">
+                                                        <i class="fa fa-phone">@post.Seller.Phone</i>
+                                                    </div>
+                                                }
                                             </div>
                                             <hr>
                                             <h5 style="text-align: center; color: grey;">
@@ -86,8 +89,9 @@
                                             <strong class="card-title mb-3">Property Location</strong>
                                         </div>
                                         <div class="card-body" style="padding-top: 0; text-align: center;">
-                                            <img src="~/https://omah.dexignzone.com/xhtml/images/map.jpg" alt=""
-                                                 class="mw-100">
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d6111.227741394736!2d-105.26949542282799!3d40.017071784707646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1svi!2s!4v1686128103547!5m2!1svi!2s"
+                                                    width="300" height="300" style="border:0;" allowfullscreen=""
+                                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                         </div>
                                         <div class="card-footer" style="padding: 0; border: 0;">
                                             <a href="#" class="btn btn-primary d-block rounded">
@@ -130,8 +134,8 @@
                                                 <hr>
                                                 <div class="mx-auto d-block">
                                                     <div class="me-auto mb-md-0 mb-4">
-                                                        <h2 class="font-w600 text-black">
-                                                            @post.RealEstate.Name
+                                                        <h2 class="font-w600 text-black" style="text-transform: capitalize">
+                                                            @Model.Name
                                                         </h2>
                                                         <span class="fs-18">
                                                             <svg width="26" height="26" viewBox="0 0 26 26"
@@ -147,7 +151,10 @@
                                                         </span>
                                                     </div>
                                                     <div class="ms-md-4 text-md-right">
-                                                        <p class="fs-14 text-black mb-1 me-1">Price range</p>
+                                                        <p class="fs-14 text-black mb-1 me-1">
+                                                            Price range
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16"> <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" /> <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z" /> </svg>
+                                                        </p>
                                                         <h4 class="fs-24 text-primary">@post.Low - @post.High</h4>
                                                     </div>
                                                 </div>
@@ -263,7 +270,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="copyright">
-                            Copyright � 2023. All rights reserved. Team <a asp-area="" asp-controller="Admin" asp-action="index">LPH</a> with love
+                            Copyright © 2023. All rights reserved. Team <a asp-area="" asp-controller="Admin" asp-action="index">LPH</a> with love
                             </p>
                         </div>
                     </div>

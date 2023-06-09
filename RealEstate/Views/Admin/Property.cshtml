@@ -18,12 +18,6 @@
                             <div class="card" style="padding-bottom: 30px;">
                                 <div class="card-header" style="margin-bottom: 2%; min-height: 60px;">
                                     <strong class="card-title mb-3">Property List</strong>
-                                    <div class="table-data__tool-right">
-                                        <input type=button onClick="window.location.href='AddProperty'"
-                                               value='+ Add Property'
-                                               class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                        </input>
-                                    </div>
                                 </div>
                                 <table class="mdl-data-table" id="table-property" style="width:95%">
                                     <thead>
@@ -40,12 +34,13 @@
                                     <tbody>
                                         @foreach (var (obj, abs) in Model.MyPost.Zip(Model.MyProp, (obj, abs) => (obj, abs)))
                                         {
+                                            @*string imgURL = @obj.RealEstate.Images.ToList()[0].Image1;*@
                                             <tr>
                                                 <td style="width: 12%">
                                                     <ul class="list-inline">
                                                         <li class="list-inline-item">
                                                             <img alt="PropertyImage" class="table-avatar"
-                                                                 src="~/images/bg-title-01.jpg" style="border-radius: 20%">
+                                                                 src="~/img/property-1.jpg" style="border-radius: 3%; width: 90%">
                                                         </li>
                                                     </ul>
                                                 </td>
@@ -70,13 +65,13 @@
                                                     <div class="table-data-feature">
                                                         <button class="item" data-toggle="tooltip"
                                                                 data-placement="top" title="Detail">
-                                                            <a asp-area="" asp-controller="Admin" asp-action="PropertyDetail">
+                                                            <a asp-area="" asp-controller="Admin" asp-action="PropertyDetail" asp-route-id="@obj.Id">
                                                                 <i class="zmdi zmdi-folder"></i>
                                                             </a>
                                                         </button>
                                                         <button class="item" data-toggle="tooltip"
                                                                 data-placement="top" title="Edit">
-                                                            <a asp-area="" asp-controller="Admin" asp-action="EditProperty">
+                                                            <a asp-area="" asp-controller="Admin" asp-action="EditProperty" asp-route-id="@obj.Id">
                                                                 <i class="zmdi zmdi-edit">
                                                                 </i>
                                                             </a>
