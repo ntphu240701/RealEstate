@@ -51,6 +51,9 @@ namespace RealEstate.Controllers
 
             return View("PropertyDetail", propertydetail);
         }
+
+        /* --------------- AGENTS --------------- */
+
         public IActionResult Agent()
         {
             var objSellerList = _sellerReposistory.GetAll();
@@ -62,10 +65,29 @@ namespace RealEstate.Controllers
             Seller sellerDetail = _sellerReposistory.GetById(id);
             return View("AgentDetail", sellerDetail);
         }
-        public IActionResult EditAgent(int id)
+        public IActionResult EditingAgent(int id)
         {
             Seller sellerEdit = _sellerReposistory.GetById(id);
-            return View("EditAgent", sellerEdit);
+            return View("EditingAgent", sellerEdit);
+        }
+        /*[HttpPost]
+        public IActionResult EditingAgent(Seller seller)
+        {
+            _sellerReposistory.EditingAgent(seller);
+            return RedirectToAction("Agent");
+        }*/
+        public IActionResult DeleteAgent(int id)
+        {
+            var sellerDetail = _sellerReposistory.GetById(id);
+            return View("DeleteAgent", sellerDetail);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteAgent(Seller seller)
+        {
+            _sellerReposistory.DeleteAgent(seller);
+
+            return RedirectToAction("Agent");
         }
 
         /* --------------- NEWS --------------- */
@@ -81,6 +103,7 @@ namespace RealEstate.Controllers
         [HttpPost]
         public IActionResult AddNew2(News news)
         {
+            _newsReposistory.UploadImage(news);
             _newsReposistory.Addnew(news);
             return RedirectToAction("New");
         }

@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using RealEstate.Models.Admin_Models;
 using NuGet.Protocol.Plugins;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace RealEstate.Reposistory
 {
@@ -16,19 +18,22 @@ namespace RealEstate.Reposistory
         public void Addnew(News news);
         public void EditingNew(News news);
         public void DeleteNews(News news);
+        public string UploadImage(News news);
     }
 
     public class NewsReposistory : INewsReposistory
     {
+        private readonly IWebHostEnvironment webHostEnvironment;
         private Ntphu24072001CnaContext _ctx;
-        public NewsReposistory(Ntphu24072001CnaContext ctx)
+        public NewsReposistory(Ntphu24072001CnaContext ctx, IWebHostEnvironment webHost)
         {
             _ctx = ctx;
+            webHostEnvironment = webHost;
         }
 
         public List<News> GetAll()
         {
-            return _ctx.News.ToList();
+            return _ctx.News.Include(x => x.Images).ToList();
         }
 
         public List<News> GetTop3()
@@ -70,9 +75,27 @@ namespace RealEstate.Reposistory
         {
             if (news != null)
             {
-                    _ctx.News.Remove(news);
-                    _ctx.SaveChanges();
+                _ctx.News.Remove(news);
+                _ctx.SaveChanges();
             }
+        }
+        public string UploadImage(News news)
+        {
+            string uniqueFileName = null;
+            if (news.FrontImage != null)
+            {
+                string uploadFile = Path.Combine(webHostEnvironment.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + news.FrontImage.Name;
+                string filePath = Path.Combine(uploadFile, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    news.FrontImage.CopyTo(fileStream);
+                }
+                _ctx.Attach(news);
+                _ctx.Entry(news).State = EntityState.Added;
+                _ctx.SaveChanges();
+            }
+            return uniqueFileName;
         }
     }
 }

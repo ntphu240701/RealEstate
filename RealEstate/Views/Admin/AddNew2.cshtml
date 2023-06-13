@@ -6,15 +6,6 @@
     ViewBag.active = 4;
 }
 <!-- PAGE CONTAINER-->
-@if (TempData["UserMessage"] != null)
-{
-    <div class="main-content">
-        <div class="alert alert-success">
-            <strong>Create New Successfully!</strong>
-            @TempData["UserMessage"]
-        </div>
-    </div>
-}
 <div class="page-container">
     <!-- MAIN CONTENT-->
     <div class="main-content">
@@ -54,7 +45,7 @@
                                             <label asp-for="Contents" class="control-label"></label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input asp-for="Contents" class="form-control" />
+                                            <textarea asp-for="Contents" class="form-control" rows="5"></textarea>
                                         </div>
                                         <span asp-validation-for="Contents" class="text-danger"></span>
                                     </div>
@@ -69,11 +60,14 @@
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label asp-for="Images" class="form-control-file"></label>
+                                            <label asp-for="FrontImage" class="control-label"></label>
                                         </div>
-                                        <div class="col-12 col-md-9">
-                                            <input asp-for="Images" class="form-control-file" type="file" />
+                                        <div class="col-12 col-md-9 custom-file">
+                                            <input asp-for="FrontImage" class="custom-file-input" type="file"
+                                                   onchange="document.getElementById('ImagePrev').src = window.URL.createObjectURL(this.files[0])" />
+                                            <label class="custom-file-label" for="Image">Choose file</label>
                                         </div>
+                                        <img id="ImagePrev" src="" alt="Logo Image" style="border: 1px; margin-top:20px; margin-left:50%; width: 150px ; height: 150px" />
                                     </div>
                                     <hr />
                                     <div class="d-flex justify-content-between">
@@ -102,4 +96,9 @@
             </div>
         </div>
 
-
+        <script type="text/javascript">
+            $("custom-file-input").on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+        </script>
