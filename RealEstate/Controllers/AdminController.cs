@@ -67,10 +67,11 @@ namespace RealEstate.Controllers
             Seller sellerEdit = _sellerReposistory.GetById(id);
             return View("EditAgent", sellerEdit);
         }
+
+        /* --------------- NEWS --------------- */
         public IActionResult New()
         {
             var objNewList = _newsReposistory.GetAll();
-
             return View("New", objNewList);
         }
         public IActionResult AddNew2()
@@ -92,7 +93,6 @@ namespace RealEstate.Controllers
         public IActionResult EditingNew(int id)
         {
             var objNew = _newsReposistory.GetById(id);
-
             return View("EditingNew", objNew);
         }
 
@@ -100,23 +100,23 @@ namespace RealEstate.Controllers
         public IActionResult EditingNew(News news)
         {
             _newsReposistory.EditingNew(news);
-
             return RedirectToAction("New");
         }
 
-        public IActionResult DeleteNews()
+        public IActionResult DeleteNews(int id)
         {
-            return View("DeleteNews");
+            var objNew = _newsReposistory.GetById(id);
+            return View("DeleteNews", objNew);
         }
 
-        [HttpDelete]
+        [HttpPost]
         public IActionResult DeleteNews(News news)
         {
             _newsReposistory.DeleteNews(news);
 
             return RedirectToAction("New");
         }
-
+        /* --------------- PAGES --------------- */
         public IActionResult Login()
         {
             return View();

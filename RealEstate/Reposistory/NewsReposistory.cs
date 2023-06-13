@@ -68,8 +68,11 @@ namespace RealEstate.Reposistory
 
         public void DeleteNews(News news)
         {
-            _ctx.News.Remove(news);
-            _ctx.SaveChanges();
+            if (news != null)
+            {
+                    _ctx.News.Remove(news);
+                    _ctx.SaveChanges();
+            }
         }
     }
 }
