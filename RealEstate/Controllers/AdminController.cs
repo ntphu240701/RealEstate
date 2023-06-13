@@ -73,30 +73,50 @@ namespace RealEstate.Controllers
 
             return View("New", objNewList);
         }
-        [HttpGet]
-        public IActionResult AddNew()
+        public IActionResult AddNew2()
         {
-            return View();
+            return View("AddNew2");
         }
-        /*[HttpPost]
-        public IActionResult AddNew(News news)
+        [HttpPost]
+        public IActionResult AddNew2(News news)
         {
-            _newsReposistory.Add(news);
-
-            return View();
-        }*/
+            _newsReposistory.Addnew(news);
+            return RedirectToAction("New");
+        }
         public IActionResult NewDetail(int Id)
         {
             var objNew = _newsReposistory.GetById(Id);
 
-            return View("NewDetail", objNew); ;
+            return View("NewDetail", objNew);
         }
-        public IActionResult EditNew(int Id)
+        public IActionResult EditingNew(int id)
         {
-            var objNew = _newsReposistory.GetById(Id);
+            var objNew = _newsReposistory.GetById(id);
 
-            return View("EditNew", objNew); ;
+            return View("EditingNew", objNew);
         }
+
+        [HttpPost]
+        public IActionResult EditingNew(News news)
+        {
+            _newsReposistory.EditingNew(news);
+
+            return RedirectToAction("New");
+        }
+
+        public IActionResult DeleteNews()
+        {
+            return View("DeleteNews");
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteNews(News news)
+        {
+            _newsReposistory.DeleteNews(news);
+
+            return RedirectToAction("New");
+        }
+
         public IActionResult Login()
         {
             return View();

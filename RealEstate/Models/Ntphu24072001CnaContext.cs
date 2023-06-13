@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using RealEstate.Models.Admin_Models;
 
 namespace RealEstate.Models;
 
@@ -179,4 +180,5 @@ public partial class Ntphu24072001CnaContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
 }
