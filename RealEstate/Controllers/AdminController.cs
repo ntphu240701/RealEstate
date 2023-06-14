@@ -41,17 +41,15 @@ namespace RealEstate.Controllers
 
             return View(model);
         }
-        public IActionResult AddProperty()
-        {
-            return View();
-        }
         public IActionResult EditProperty(int Id)
         {
-            return View("EditProperty"); ;
+            return View("EditProperty");
         }
-        public IActionResult PropertyDetail(int id)
+        public IActionResult PropertyDetail(int Id)
         {
-            return View("PropertyDetail");
+            Property propertydetail = _propertyReposistory.GetPropertyById(Id);
+
+            return View("PropertyDetail", propertydetail);
         }
         public IActionResult Agent()
         {
@@ -59,13 +57,34 @@ namespace RealEstate.Controllers
 
             return View("Agent", objSellerList);
         }
+        public IActionResult AgentDetail(int id)
+        {
+            Seller sellerDetail = _sellerReposistory.GetById(id);
+            return View("AgentDetail", sellerDetail);
+        }
+        public IActionResult EditAgent(int id)
+        {
+            Seller sellerEdit = _sellerReposistory.GetById(id);
+            return View("EditAgent", sellerEdit);
+        }
         public IActionResult New()
         {
             var objNewList = _newsReposistory.GetAll();
 
             return View("New", objNewList);
         }
+        [HttpGet]
+        public IActionResult AddNew()
+        {
+            return View();
+        }
+        /*[HttpPost]
+        public IActionResult AddNew(News news)
+        {
+            _newsReposistory.Add(news);
 
+            return View();
+        }*/
         public IActionResult NewDetail(int Id)
         {
             var objNew = _newsReposistory.GetById(Id);
@@ -77,10 +96,6 @@ namespace RealEstate.Controllers
             var objNew = _newsReposistory.GetById(Id);
 
             return View("EditNew", objNew); ;
-        }
-        public IActionResult Calendar()
-        {
-            return View();
         }
         public IActionResult Login()
         {

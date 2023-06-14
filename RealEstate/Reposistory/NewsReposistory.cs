@@ -34,7 +34,15 @@ namespace RealEstate.Reposistory
         {
             return _ctx.News
                 .Where(x => x.Id == Id)
-                .Include(x => x.Images).SingleOrDefault();
+
+                .Include(x => x.Images)
+                .SingleOrDefault();
+
         }
+        /*public News AddNew()
+        {
+            _ctx.News.Add(new);
+            _ctx.SaveChanges();
+        }*/
     }
 }

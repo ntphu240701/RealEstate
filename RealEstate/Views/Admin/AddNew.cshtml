@@ -1,7 +1,7 @@
-@{
+﻿@{
     Layout = "~/Views/shared/_layout_admin.cshtml";
-    ViewBag.title = "AddProperty";
-    ViewBag.active = 2;
+    ViewBag.title = "AddNew";
+    ViewBag.active = 4;
 }
 <!-- PAGE CONTAINER-->
 <div class="page-container">
@@ -19,44 +19,25 @@
                             <div class="card-header">
                                 <div class="page-titles">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a asp-area="" asp-controller="Admin" asp-action="Property">Property</a></li>
+                                        <li class="breadcrumb-item"><a asp-area="" asp-controller="Admin" asp-action="New">New</a></li>
                                         <li class="breadcrumb-item active">
-                                            <a asp-area="" asp-controller="Admin" asp-action="AddProperty">Add Property</a>
+                                            <a asp-area="" asp-controller="Admin" asp-action="AddNew">Add New</a>
                                         </li>
                                     </ol>
                                 </div>
                             </div>
                             <div class="card-body card-block">
-                                <form action="" method="post" enctype="multipart/form-data"
+                                <form action="~/AdminController/AddProperty" method="post" enctype="multipart/form-data"
                                       class="form-horizontal">
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="text-input" class=" form-control-label">
-                                                Property
-                                                Name :
+                                                New Title :
                                             </label>
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="text" id="text-input" name="text-input"
-                                                   placeholder="Change property name..." class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <label for="text-input" class=" form-control-label">
-                                                Property
-                                                Budget
-                                                :
-                                            </label>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <div class="input-group">
-                                                <input type="number" id="input3-group1" name="input3-group1"
-                                                       placeholder=".." class="form-control">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-usd" aria-hidden="true"></i>
-                                                </div>
-                                            </div>
+                                                   placeholder="Your title..." class="form-control">
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -74,15 +55,17 @@
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="select" class=" form-control-label">
-                                                Status :
+                                                New Category :
                                             </label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <select name="select" id="select" class="form-control">
-                                                <option value="0">Please select</option>
-                                                <option value="1">For Sell</option>
-                                                <option value="2">For Rent</option>
-                                                <option value="3">Sold</option>
+                                            <select name="category" id="category" class="form-control" multiple">
+                                                <option value="1">Apartment</option>
+                                                <option value="2">House</option>
+                                                <option value="3">Style</option>
+                                                <option value="4">Rent</option>
+                                                <option value="5">Sell</option>
+                                                <option value="6">Buy</option>
                                             </select>
                                         </div>
                                     </div>
@@ -102,7 +85,7 @@
                                 </form>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" onclick="window.location.href='/Admin/Property.html'"
+                                <button type="submit" onclick="window.location.href='Property'"
                                         class="btn au-btn--green btn-sm">
                                     <i class="fa fa-dot-circle-o"></i> Confirm
                                 </button>
