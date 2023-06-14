@@ -30,6 +30,9 @@ namespace RealEstate.Controllers
         {
             return View();
         }
+
+        /* --------------- Property --------------- */
+
         public IActionResult Property()
         {
             AdminModel model = new AdminModel();
@@ -42,9 +45,11 @@ namespace RealEstate.Controllers
 
             return View(model);
         }
-        public IActionResult EditProperty(int Id)
+        public IActionResult EditingProperty(int id)
         {
-            return View("EditProperty");
+            Post editproperty = _postReposistory.GetById(id);
+
+            return View("EditingProperty", editproperty);
         }
         public IActionResult PropertyDetail(int Id)
         {

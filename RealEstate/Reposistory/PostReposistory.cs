@@ -8,6 +8,8 @@ namespace RealEstate.Reposistory
         public List<Post> GetAll();
 
         public List<Post> GetTop3();
+        public Post GetById(int Id);
+        public void EditingPost(Post post);
 
         public Boolean Create(Post post);
 
@@ -62,6 +64,17 @@ namespace RealEstate.Reposistory
         public bool Update(Post post)
         {
             throw new NotImplementedException();
+        }
+
+        public void EditingPost(Post post)
+        {
+
+        }
+        public Post GetById(int Id)
+        {
+            return _ctx.Posts.Where(x => x.Id == Id)
+                .Include(prop => prop.RealEstate.Images)
+                .SingleOrDefault();
         }
     }
 }

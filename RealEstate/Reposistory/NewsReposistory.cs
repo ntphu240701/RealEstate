@@ -84,7 +84,7 @@ namespace RealEstate.Reposistory
             string uniqueFileName = null;
             if (news.FrontImage != null)
             {
-                string uploadFile = Path.Combine(webHostEnvironment.WebRootPath, "images");
+                string uploadFile = Path.Combine(webHostEnvironment.WebRootPath, "img");
                 uniqueFileName = Guid.NewGuid().ToString() + "_" + news.FrontImage.FileName;
                 string filePath = Path.Combine(uploadFile, uniqueFileName);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
