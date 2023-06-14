@@ -11,9 +11,9 @@ namespace RealEstate.Reposistory
         public List<Seller> GetTop3();
 
         public Seller GetById(int Id);
-      
+
         public void DeleteAgent(Seller seller);
-      
+
         public void EditingAgent(Seller seller);
     }
 
@@ -72,7 +72,7 @@ namespace RealEstate.Reposistory
             }
             return _ctx.Sellers
                 .Where(x => x.Id == Id)
-                .Include(x=>x.Images).SingleOrDefault();
+                .Include(x => x.Images).SingleOrDefault();
         }
     }
 }
