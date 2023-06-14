@@ -42,7 +42,7 @@ app.MapControllerRoute(
     name: "default",
 
 
-    pattern: "{controller=Admin}/{action=Property}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
 app.Run();
