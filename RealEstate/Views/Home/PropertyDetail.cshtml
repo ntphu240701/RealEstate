@@ -2,10 +2,8 @@
 
 <!--/ Intro Single star /-->
 <section class="intro-single">
-
     <div class="container">
-        <div class="row">
-            
+        <div class="row">            
             <div class="col-md-12 col-lg-8">
                 <div class="title-single-box">
                     <h1 class="title-single">@Model.Name</h1>
@@ -38,122 +36,119 @@
     <div class="container">
         <div class="row">
             <!-- put foreach-->
-                @foreach (var post in Model.Posts)
-                {
-
-                    <div class="col-sm-12">
-                        <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
-                    <div class="carousel-item-b">
-                        <img src="~/img/slide-2.jpg" alt="">
-                    </div>
-                    <div class="carousel-item-b">
-                        <img src="~/img/slide-3.jpg" alt="">
-                    </div>
-                    <div class="carousel-item-b">
-                        <img src="~/img/slide-1.jpg" alt="">
-                    </div>
-                </div>
-                <div class="row justify-content-between">
-                    <div class="col-md-5 col-lg-4">
-                        <div class="property-price d-flex justify-content-center foo">
-                            <div class="card-header-c d-flex">
-                                <div class="card-box-ico">
-                                    <span class="ion-money">$</span>
-                                </div>
-                                <div class="card-title-c align-self-center">
-                                    <h5 class="title-c">@Model.Price</h5>
-                                </div>
-                            </div>
+            @foreach (var post in Model.Posts)
+            {
+                <div class="col-sm-12">
+                    <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
+                        <div class="carousel-item-b">
+                            <img src="~/img/slide-2.jpg" alt="">
                         </div>
-                        <div class="property-summary">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="title-box-d section-t4">
-                                        <h3 class="title-d"></h3>
+                        <div class="carousel-item-b">
+                            <img src="~/img/slide-3.jpg" alt="">
+                        </div>
+                        <div class="carousel-item-b">
+                            <img src="~/img/slide-1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-md-5 col-lg-4">
+                            <div class="property-price d-flex justify-content-center foo">
+                                <div class="card-header-c d-flex">
+                                    <div class="card-box-ico">
+                                        <span class="ion-money">$</span>
+                                    </div>
+                                    <div class="card-title-c align-self-center">
+                                        <h5 class="title-c">@Model.Price</h5>
                                     </div>
                                 </div>
                             </div>
-                            <div class="summary-list">
-                                <ul class="list">
-                                    <li class="d-flex justify-content-between">
+                            <div class="property-summary">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="title-box-d section-t4">
+                                            <h3 class="title-d"></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="summary-list">
+                                    <ul class="list">
+                                        <li class="d-flex justify-content-between">
                                         
-                                        <strong>Property ID: </strong>
-                                            <span>@post.RealEstateId</span>
-                                        
-                                    </li>
-                                    <li class="d-flex justify-content-between">
-                                        
-                                        <strong>Seller </strong>
-                                        <span>@post.Seller.Name</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Location:</strong>
-                                        <span>@Model.Location.Name</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Status:</strong>
-                                        <span>@post.Status</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Reasonably</strong>
-                                        <span>
-                                            @post.Low
-                                        </span>
-                                    </li>
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Bid</strong>
-                                        <span>@post.High</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Contact</strong>
-                                        <span>@post.Seller.Phone</span>
-                                    </li>
+                                            <strong>Property ID: </strong>
+                                            <span>@post.RealEstateId</span>                                        
+                                        </li>
+                                        <li class="d-flex justify-content-between">                                        
+                                            <strong>Seller </strong>
+                                            <span>@post.Seller.Name</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Location:</strong>
+                                            <span>@Model.Location.Name</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Status:</strong>
+                                            <span>@post.Status</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Reasonably</strong>
+                                            <span>
+                                                @post.Low
+                                            </span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Bid</strong>
+                                            <span>@post.High</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Contact</strong>
+                                            <span>@post.Seller.Phone</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-lg-7 section-md-t3">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="title-box-d">
+                                        <h3 class="title-d">Property Description</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="property-description">
+                                <p class="description color-text-a">
+                                    @post.Description
+                                </p>
+                                <!-- <p class="description color-text-a no-margin">
+                                    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget
+                                    malesuada. Quisque velit nisi,
+                                    pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
+                                    </p>-->
+                            </div>
+                            <div class="row section-t3">
+                                <div class="col-sm-12">
+                                    <div class="title-box-d">
+                                        <h3 class="title-d">Tiện ích: </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="amenities-list color-text-a">
+                                <ul class="list-a no-margin">
+                                    <li>Balcony</li>
+                                    <li>Outdoor Kitchen</li>
+                                    <li>Cable Tv</li>
+                                    <li>Deck</li>
+                                    <li>Tennis Courts</li>
+                                    <li>Internet</li>
+                                    <li>Parking</li>
+                                    <li>Sun Room</li>
+                                    <li>Concrete Flooring</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-7 col-lg-7 section-md-t3">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="title-box-d">
-                                    <h3 class="title-d">Property Description</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="property-description">
-                            <p class="description color-text-a">
-                                @post.Description
-                            </p>
-                            <!-- <p class="description color-text-a no-margin">
-                                Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget
-                                malesuada. Quisque velit nisi,
-                                pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
-                                </p>-->
-                        </div>
-                        <div class="row section-t3">
-                            <div class="col-sm-12">
-                                <div class="title-box-d">
-                                    <h3 class="title-d">Tiện ích: </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="amenities-list color-text-a">
-                            <ul class="list-a no-margin">
-                                <li>Balcony</li>
-                                <li>Outdoor Kitchen</li>
-                                <li>Cable Tv</li>
-                                <li>Deck</li>
-                                <li>Tennis Courts</li>
-                                <li>Internet</li>
-                                <li>Parking</li>
-                                <li>Sun Room</li>
-                                <li>Concrete Flooring</li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
-            </div>
-                }
+            }
             
             <div class="col-md-10 offset-md-1">
                 <ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">

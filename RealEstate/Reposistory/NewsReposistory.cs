@@ -32,7 +32,9 @@ namespace RealEstate.Reposistory
 
         public News GetById(int Id)
         {
-            return _ctx.News.Where(x => x.Id == Id).SingleOrDefault();
+            return _ctx.News
+                .Where(x => x.Id == Id)
+                .Include(x => x.Images).SingleOrDefault();
         }
     }
 }

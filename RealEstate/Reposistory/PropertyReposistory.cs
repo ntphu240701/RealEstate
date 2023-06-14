@@ -27,14 +27,14 @@ namespace RealEstate.Reposistory
 
         public Property GetPropertyById(int id)
         {
-            Property p = _ctx.Properties
+            return _ctx.Properties
                 .Where(x => x.Id == id)
                 .Include(x => x.Posts)
-                    .ThenInclude(post => post.Seller)
+                .ThenInclude(post => post.Seller).ThenInclude(seller => seller.Images)
                 .Include(x => x.Location)
+                .Include(x => x.Images)
+                .Include(x => x.Category)
                 .SingleOrDefault();
-            return p;
-            //List<Post> posts = p.Posts.ToList();  
         }
     }
 }
