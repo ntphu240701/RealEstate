@@ -1,4 +1,4 @@
-﻿@model RealEstate.Models.HomeModel
+﻿@model HomeModel
 
 @{
     ViewData["Title"] = "Home";
@@ -210,7 +210,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="property-carousel" class="owl-carousel owl-theme">
             <tbody>
                 @foreach (var obj in Model.MyPost)
@@ -234,7 +234,7 @@
                                         <div class="price-box d-flex">
                                             <span class="price-a">@obj.RealEstate.Price</span>
                                         </div>
-                                        <a asp-area="" asp-controller="Home" asp-action="ProjectDetail" class="link-a">
+                                        <a asp-area="" asp-controller="Home" asp-action="Detail" asp-route-id="@obj.RealEstate.Id" class="link-a">
                                             Click here to view
                                             <span class="ion-ios-arrow-forward"></span>
                                         </a>
@@ -249,16 +249,15 @@
                                             </li>
                                             <li>
                                                 <h4 class="card-info-title">Type</h4>
-                                                <span>@obj.RealEstate.CategoryId</span>
+                                                <span>@obj.RealEstate.Category.Name</span>
                                             </li>
                                             <li>
                                                 <h4 class="card-info-title">Location</h4>
-                                                <span> @obj.RealEstate.LocationId</span>
+                                                <span> @obj.RealEstate.Location.Name</span>
                                             </li>
-
                                             <li>
                                                 <h4 class="card-info-title">Investor</h4>
-                                                <span> @obj.RealEstate.ChuDauTuId</span>
+                                                <span> @obj.RealEstate.ChuDauTu.Name</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -268,7 +267,7 @@
                     </div>
                 }
             </tbody>
-        </div>                
+        </div>
     </div>
 </section>
 <!--/ Property End /-->
