@@ -179,5 +179,21 @@ namespace RealEstate.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+    [HttpPost]
+    public IActionResult SearchResult()
+        {
+            var name = Request.Form["name"].ToString();
+
+            //int id = Convert.ToInt32(Request.Form["id"].ToString());
+
+            //var dientich = Request.Form["dientich"].ToString();
+
+            List<Property> searchResult = _propertyReposistory.SearchProperties(name);
+
+            return View("SearchResult", searchResult);
+        }
+
+
     }
 }

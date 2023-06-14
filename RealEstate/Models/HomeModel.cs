@@ -11,4 +11,5 @@
         public List <Location> MyLocation { get; set; }
         public List <Category> MyCate { get; set; }
     }
+
 }

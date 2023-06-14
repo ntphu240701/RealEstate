@@ -1,0 +1,75 @@
+﻿@model List<Property>
+
+@*@{
+    Layout = null;
+}*@
+
+<br></br>
+<br></br>
+<br></br>
+
+<section class="property-grid grid">
+
+    <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                <div class="col-md-4">
+                    <div class="card-box-a card-shadow">
+                        <div class="img-box-a">
+                            <img src="~/img/property-1.jpg" alt="" class="img-a img-fluid">
+                        </div>
+                        <div class="card-overlay">
+                            <div class="card-overlay-a-content">
+
+                                <div class="card-header-a">
+                                    <h2 class="card-title-a">
+                                        <a>
+                                            @item.Name
+                                        </a>
+                                    </h2>
+                                </div>
+
+                                <div class="card-body-a">
+                                    <div class="price-box d-flex">
+                                        <span class="price-a">@item.Price</span>
+                                    </div>
+                                    <!--nơi đây dang định lấy post nhưng gửi về là id của property mà ko phải id của post -->
+                                    <a asp-area="" asp-controller="Home" asp-action="PropertyDetail" asp-route-id="@item.Id">
+                                        Click here to view
+                                        <span class="ion-ios-arrow-forward"></span>
+                                    </a>
+                                </div>
+
+                                <div class="card-footer-a">
+                                    <ul class="card-info d-flex justify-content-around">
+                                        <li>
+                                            <h4 class="card-info-title">ID</h4>
+                                            <span>
+                                                <sup>@item.Id</sup>
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <h4 class="card-info-title">Area</h4>
+                                            <span>
+                                                <sup>@item.DienTich</sup>
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <h4 class="card-info-title">Danh mục</h4>
+                                            <span>
+                                                <sup>@item.CategoryId</sup>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+             </div>
+</section>
