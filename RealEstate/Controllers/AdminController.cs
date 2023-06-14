@@ -3,6 +3,7 @@ using RealEstate.Models;
 using RealEstate.Models.Admin_Models;
 using RealEstate.Reposistory;
 
+
 namespace RealEstate.Controllers
 {
     public class AdminController : Controller
@@ -70,12 +71,12 @@ namespace RealEstate.Controllers
             Seller sellerEdit = _sellerReposistory.GetById(id);
             return View("EditingAgent", sellerEdit);
         }
-        /*[HttpPost]
+        [HttpPost]
         public IActionResult EditingAgent(Seller seller)
         {
             _sellerReposistory.EditingAgent(seller);
             return RedirectToAction("Agent");
-        }*/
+        }
         public IActionResult DeleteAgent(int id)
         {
             var sellerDetail = _sellerReposistory.GetById(id);

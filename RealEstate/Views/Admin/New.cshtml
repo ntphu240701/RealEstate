@@ -39,55 +39,55 @@
                                     <tbody>
                                         @foreach (var obj in Model)
                                         {
-                                            if (obj.Images.ToList().Count != 0)
-                                            {
-                                                string imgURL = @obj.Images.ToList()[0].Image1;
-                                                <tr>
-                                                    <td>
-                                                        <ul class="list-inline">
-                                                            <li class="list-inline-item">
-                                                                <img alt="PropertyImage" class="table-avatar"
-                                                                     src="~/img/@imgURL" style="border-radius: 3%; width: 100%">
-                                                            </li>
-                                                        </ul>
-                                                    </td>
-                                                    <td>
-                                                        <div class="table-data__info">
-                                                            <h6>@obj.Title</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <span class="desc">@obj.Contents</span>
-                                                    </td>
-                                                    <td>@obj.Date</td>
-                                                    <td>
-                                                        <span class="badge light badge-success">Published</span>
-                                                    </td>
-                                                    <td>
-                                                        <div class="table-data-feature">
-                                                            <button class="item" data-toggle="tooltip"
-                                                                    data-placement="top" title="Detail">
-                                                                <a asp-area="" asp-controller="Admin" asp-action="NewDetail" asp-route-id="@obj.Id">
-                                                                    <i class="zmdi zmdi-folder"></i>
-                                                                </a>
-                                                            </button>
-                                                            <button class="item" data-toggle="tooltip"
-                                                                    data-placement="top" title="Edit">
-                                                                <a asp-area="" asp-controller="Admin" asp-action="EditingNew" asp-route-id="@obj.Id">
-                                                                    <i class="zmdi zmdi-edit">
-                                                                    </i>
-                                                                </a>
-                                                            </button>
-                                                            <button class="item" data-toggle="tooltip"
-                                                                    data-placement="top" title="Delete">
-                                                                <a asp-area="" asp-controller="Admin" asp-action="DeleteNews" asp-route-id="@obj.Id">
-                                                                    <i class="zmdi zmdi-delete"></i>
-                                                                </a>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            }
+                                            @*if (obj.Images.ToList().Count != 0)
+                                        {*@
+                                            @*string imgURL = @obj.Images.ToList()[0].Image1;*@
+                                            <tr>
+                                                <td>
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item">
+                                                            <img alt="PropertyImage" class="table-avatar"
+                                                                 src="~/img/about-1.jpg" style="border-radius: 3%; width: 100%">
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <div class="table-data__info">
+                                                        <h6>@obj.Title</h6>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="desc">@obj.Contents</span>
+                                                </td>
+                                                <td>@obj.Date</td>
+                                                <td>
+                                                    <h4><span class="badge light badge-success">Published</span></h4>
+                                                </td>
+                                                <td>
+                                                    <div class="table-data-feature">
+                                                        <button class="item" data-toggle="tooltip"
+                                                                data-placement="top" title="Detail">
+                                                            <a asp-area="" asp-controller="Admin" asp-action="NewDetail" asp-route-id="@obj.Id">
+                                                                <i class="zmdi zmdi-folder"></i>
+                                                            </a>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip"
+                                                                data-placement="top" title="Edit">
+                                                            <a asp-area="" asp-controller="Admin" asp-action="EditingNew" asp-route-id="@obj.Id">
+                                                                <i class="zmdi zmdi-edit">
+                                                                </i>
+                                                            </a>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip"
+                                                                data-placement="top" title="Delete">
+                                                            <a asp-area="" asp-controller="Admin" asp-action="DeleteNews" asp-route-id="@obj.Id">
+                                                                <i class="zmdi zmdi-delete"></i>
+                                                            </a>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
                                         }
                                     </tbody>
                                 </table>

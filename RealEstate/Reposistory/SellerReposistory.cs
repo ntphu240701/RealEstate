@@ -35,14 +35,16 @@ namespace RealEstate.Reposistory
 
         public Seller GetById(int Id)
         {
-            return _ctx.Sellers.Where(x => x.Id == Id).SingleOrDefault();
+            return _ctx.Sellers.Where(x => x.Id == Id)
+                .Include(prop => prop.Images)
+                .SingleOrDefault();
         }
 
         public void EditingAgent(Seller seller)
         {
             if (seller != null)
             {
-                var existingAgent = _ctx.Sellers.Where(x => x.Id == seller.Id).FirstOrDefault();
+                var existingAgent = _ctx.Sellers.Where(x => x.Id == seller.Id).Include(prop => prop.Images).FirstOrDefault();
                 if (existingAgent != null)
                 {
                     existingAgent.Id = seller.Id;

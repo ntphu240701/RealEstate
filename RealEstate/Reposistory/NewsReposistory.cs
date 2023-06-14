@@ -1,7 +1,6 @@
 ﻿using RealEstate.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using RealEstate.Models.Admin_Models;
 using NuGet.Protocol.Plugins;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
@@ -48,6 +47,7 @@ namespace RealEstate.Reposistory
                 .Include(x => x.Images)
                 .SingleOrDefault();
         }
+
         public void Addnew(News news)
         {
             _ctx.News.Add(news);
@@ -85,7 +85,7 @@ namespace RealEstate.Reposistory
             if (news.FrontImage != null)
             {
                 string uploadFile = Path.Combine(webHostEnvironment.WebRootPath, "images");
-                uniqueFileName = Guid.NewGuid().ToString() + "_" + news.FrontImage.Name;
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + news.FrontImage.FileName;
                 string filePath = Path.Combine(uploadFile, uniqueFileName);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {

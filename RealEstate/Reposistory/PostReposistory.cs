@@ -36,12 +36,27 @@ namespace RealEstate.Reposistory
 
         public List<Post> GetAll()
         {
-            return _ctx.Posts.Include(x => x.RealEstate).ToList();
+            return _ctx.Posts
+                .Include(x => x.RealEstate)
+                .ThenInclude(prop => prop.Images)
+                .Include(x => x.RealEstate)
+                .ThenInclude(cate => cate.Category)
+                .Include(x => x.RealEstate)
+                .ThenInclude(locate => locate.Location)
+                .Include(x => x.RealEstate)
+                .ThenInclude(invest => invest.ChuDauTu).ToList();
         }
 
         public List<Post> GetTop3()
         {
-            return _ctx.Posts.OrderByDescending(x => x.Date).Take(3).ToList();
+            return _ctx.Posts
+                .Include(x => x.RealEstate)
+                .ThenInclude(cate => cate.Category)
+                .Include(x => x.RealEstate)
+                .ThenInclude(locate => locate.Location)
+                .Include(x => x.RealEstate)
+                .ThenInclude(invest => invest.ChuDauTu)
+                .OrderByDescending(x => x.Id).Take(3).ToList();
         }
 
         public bool Update(Post post)

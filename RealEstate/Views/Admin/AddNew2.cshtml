@@ -63,9 +63,9 @@
                                             <label asp-for="FrontImage" class="control-label"></label>
                                         </div>
                                         <div class="col-12 col-md-9 custom-file">
-                                            <input asp-for="FrontImage" class="custom-file-input" type="file"
+                                            <input asp-for="Images" class="custom-file-input" type="file"
                                                    onchange="document.getElementById('ImagePrev').src = window.URL.createObjectURL(this.files[0])" />
-                                            <label class="custom-file-label" for="Image">Choose file</label>
+                                            <label class="custom-file-label" for="Images">Choose file</label>
                                         </div>
                                         <img id="ImagePrev" src="" alt="Logo Image" style="border: 1px; margin-top:20px; margin-left:50%; width: 150px ; height: 150px" />
                                     </div>
