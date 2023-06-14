@@ -15,6 +15,7 @@ namespace RealEstate.Controllers
         private IUserReposistory _userReposistory;
         private ICategoryReposistory _categoryReposistory;
         private ILocationReposistory _locationReposistory;
+        private IInvestorReposistory _investorReposistory;
 
         public HomeController(IPostReposistory postReposistory,
                               ISellerReposistory sellerReposistory,
@@ -22,7 +23,8 @@ namespace RealEstate.Controllers
                               INewsReposistory newsReposistory,
                               IUserReposistory userReposistory,
                               ICategoryReposistory categoryReposistory,
-                              ILocationReposistory locationReposistory
+                              ILocationReposistory locationReposistory,
+                              IInvestorReposistory investorReposistory
             )
         //store all connection string and retrieve table top data
         {
@@ -33,6 +35,7 @@ namespace RealEstate.Controllers
             _userReposistory = userReposistory;
             _categoryReposistory = categoryReposistory;
             _locationReposistory = locationReposistory;
+            _investorReposistory = investorReposistory;
         }
 
         //GET HOME
@@ -66,14 +69,22 @@ namespace RealEstate.Controllers
 
         public IActionResult AllProperties()
         {
-            var objPropertyList = _postReposistory.GetAll();
+            HomeModel model = new HomeModel();
 
-            return View("AllProperties", objPropertyList);
+            List<Post> objPostList = _postReposistory.GetAll();
+            model.MyPost = objPostList;
+
+            List<Property> objPropertyList = _propertyReposistory.GetAll();
+            model.MyProp = objPropertyList;            
+
+            return View(model);
         }
 
-        public IActionResult Agent()
+        public IActionResult Agent(int id)
         {
-            return View();
+            var objSeller = _sellerReposistory.GetById(id);
+
+            return View("Agent", objSeller);
         }
 
         public IActionResult AllAgents()
@@ -83,9 +94,11 @@ namespace RealEstate.Controllers
             return View("AllAgents", objSellerList);
         }
 
-        public IActionResult New()
+        public IActionResult New(int id)
         {
-            return View();
+            var objNew = _newsReposistory.GetById(id);
+
+            return View("New", objNew);
         }
 
         public IActionResult AllNews()
@@ -95,73 +108,50 @@ namespace RealEstate.Controllers
             return View("AllNews", objNewsList);
         }
 
-
         public IActionResult Project()
         {
-            var categories = _categoryReposistory.GetProp();
+            HomeModel model = new HomeModel();
 
-            var location = _locationReposistory.GetPropWLoctation();
+            List<Post> objPostList = _postReposistory.GetAll();
+            model.MyPost = objPostList;
 
-            var viewModel = new MyViewModel
-            {
-                Categories = categories,
-                Locations = location
+            List<Property> objPropertyList = _propertyReposistory.GetAll();
+            model.MyProp = objPropertyList;
 
-            };
-
-            return View("Project", viewModel);
-        }
-
-        public IActionResult PropertyDetail(int id)
-        {
-
-            Property property = _propertyReposistory.GetPropertyById(id);
-
-            return View("PropertyDetail", property);
-        }
+            return View(model);
+        }              
 
         public IActionResult Buy()
         {
-            var categories = _categoryReposistory.GetProp();
+            HomeModel model = new HomeModel();
 
-            var location = _locationReposistory.GetPropWLoctation();
+            List<Post> objPostList = _postReposistory.GetAll();
+            model.MyPost = objPostList;
 
-            var viewModel = new MyViewModel
-            {
-                Categories = categories,
-                Locations = location
+            List<Property> objPropertyList = _propertyReposistory.GetAll();
+            model.MyProp = objPropertyList;
 
-            };
-            return View("Buy", viewModel);
-        }
-
-        public IActionResult BuyDetail(int id)
-        {
-            Property property = _propertyReposistory.GetPropertyById(id);
-
-            return View("BuyDetail", property);
+            return View(model);
         }
 
         public IActionResult Rent()
         {
-            var categories = _categoryReposistory.GetProp();
+            HomeModel model = new HomeModel();
 
-            var location = _locationReposistory.GetPropWLoctation();
+            List<Post> objPostList = _postReposistory.GetAll();
+            model.MyPost = objPostList;
 
-            var viewModel = new MyViewModel
-            {
-                Categories = categories,
-                Locations = location
+            List<Property> objPropertyList = _propertyReposistory.GetAll();
+            model.MyProp = objPropertyList;
 
-            };
-            return View("Rent", viewModel);
-        }
+            return View(model);
+        }      
 
-        public IActionResult RentDetail(int id)
+        public IActionResult Detail(int id)
         {
             Property property = _propertyReposistory.GetPropertyById(id);
 
-            return View("RentDetail", property);
+            return View("Detail", property);
         }
 
         public IActionResult About()
@@ -170,6 +160,11 @@ namespace RealEstate.Controllers
         }
 
         public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult UserDetail()
         {
             return View();
         }
@@ -184,8 +179,6 @@ namespace RealEstate.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-      
-    
 
     [HttpPost]
     public IActionResult SearchResult()
@@ -200,6 +193,7 @@ namespace RealEstate.Controllers
 
             return View("SearchResult", searchResult);
         }
+
 
     }
 }

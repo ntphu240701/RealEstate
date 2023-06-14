@@ -41,4 +41,5 @@ public partial class Post
     public virtual Property RealEstate { get; set; } = null!;
 
     public virtual Seller Seller { get; set; } = null!;
+
 }

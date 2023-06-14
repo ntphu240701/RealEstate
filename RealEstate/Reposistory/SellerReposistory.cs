@@ -10,6 +10,8 @@ namespace RealEstate.Reposistory
         public List<Seller> GetTop3();
 
         public Seller GetById(int Id);
+
+        //public List<Seller> GetProperties();
     }
 
     public class SellerReposistory : ISellerReposistory
@@ -22,17 +24,27 @@ namespace RealEstate.Reposistory
 
         public List<Seller> GetAll()
         {
-            return _ctx.Sellers.Include(x=>x.Images).ToList();
+            return _ctx.Sellers.Include(x => x.Images).ToList();
         }
 
         public List<Seller> GetTop3()
         {
-            return _ctx.Sellers.Include(x=>x.Images).OrderByDescending(x => x.Id).Take(3).ToList();
+            return _ctx.Sellers.Include(x => x.Images).OrderByDescending(x => x.Id).Take(3).ToList();
         }
 
         public Seller GetById(int Id)
         {
-            return _ctx.Sellers.Where(x => x.Id == Id).SingleOrDefault();
+            return _ctx.Sellers
+                .Where(x => x.Id == Id)
+                .Include(x=>x.Images).SingleOrDefault();
         }
+
+        /*public List<Seller> GetProperties()
+        {
+            return _ctx.Sellers
+                .Include(x => x.Posts)
+                .ThenInclude(post=>post.RealEstate)
+                .Include(x=>x.);
+        }*/
     }
 }

@@ -1,8 +1,6 @@
-@model RealEstate.Models.News
-
-@{
+﻿@{
     Layout = "~/Views/shared/_layout_admin.cshtml";
-    ViewBag.title = "EditNew";
+    ViewBag.title = "AddNew";
     ViewBag.active = 4;
 }
 <!-- PAGE CONTAINER-->
@@ -21,39 +19,31 @@
                             <div class="card-header">
                                 <div class="page-titles">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a asp-area="" asp-controller="Admin" asp-action="New">News</a></li>
+                                        <li class="breadcrumb-item"><a asp-area="" asp-controller="Admin" asp-action="New">New</a></li>
                                         <li class="breadcrumb-item active">
-                                            <a asp-area="" asp-controller="Admin" asp-action="EditNew">Edit News</a>
+                                            <a asp-area="" asp-controller="Admin" asp-action="AddNew">Add New</a>
                                         </li>
                                     </ol>
                                 </div>
                             </div>
                             <div class="card-body card-block">
-                                <form action="" method="post" enctype="multipart/form-data"
+                                <form action="~/AdminController/AddProperty" method="post" enctype="multipart/form-data"
                                       class="form-horizontal">
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label class=" form-control-label">Current New :</label>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <p class="form-control-static"> @Model.Title </p>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
                                             <label for="text-input" class=" form-control-label">
-                                                New Tittle :
+                                                New Title :
                                             </label>
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="text" id="text-input" name="text-input"
-                                                   placeholder="Change new tittle..." class="form-control">
+                                                   placeholder="Your title..." class="form-control">
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="textarea-input" class=" form-control-label">
-                                                Content
+                                                Description
                                                 :
                                             </label>
                                         </div>
@@ -65,26 +55,11 @@
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="select" class=" form-control-label">
-                                                Status :
+                                                New Category :
                                             </label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <select name="select" id="select" class="form-control">
-                                                <option value="0">Please select</option>
-                                                <option value="1">Published</option>
-                                                <option value="2">UnPublished</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <label for="select" class=" form-control-label">
-                                                Change Category :
-                                            </label>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <select name="category" id="category" class="form-control" multiple>
+                                            <select name="category" id="category" class="form-control" multiple">
                                                 <option value="1">Apartment</option>
                                                 <option value="2">House</option>
                                                 <option value="3">Style</option>
@@ -98,7 +73,7 @@
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="file-input" class=" form-control-label">
-                                                Change Image
+                                                Image
                                                 input :
                                             </label>
                                         </div>
@@ -110,19 +85,16 @@
                                 </form>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn au-btn--green btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i> Update
-                                </button>
-                                <button type="reset" class="btn au-btn--red btn-sm">
-                                    <i class="fa fa-ban"></i> Delete
+                                <button type="submit" onclick="window.location.href='Property'"
+                                        class="btn au-btn--green btn-sm">
+                                    <i class="fa fa-dot-circle-o"></i> Confirm
                                 </button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
-                                    <p>
-                                        Copyright © 2023. All rights reserved. Team <a asp-area="" asp-controller="Admin" asp-action="index">LPH</a> with love
+                                    Copyright © 2023. All rights reserved. Team <a asp-area="" asp-controller="Admin" asp-action="index">LPH</a> with love
                                     </p>
                                 </div>
                             </div>
@@ -132,4 +104,3 @@
             </div>
         </div>
     </div>
-</div>

@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Admin\AddProperty.cshtml" />
     <Content Remove="Views\Admin\calendar.cshtml" />
     <Content Remove="wwwroot\css\login.css" />
     <Content Remove="wwwroot\css\scss-files.txt" />
@@ -57,8 +56,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Admin\AddProperty.cshtml" />
-    <None Include="Views\Admin\Calendar.cshtml" />
     <None Include="wwwroot\contactform\contactform.js" />
     <None Include="wwwroot\contactform\Readme.txt" />
     <None Include="wwwroot\css\login.css" />
