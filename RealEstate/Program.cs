@@ -19,6 +19,7 @@ builder.Services.AddTransient<INewsReposistory, NewsReposistory>();
 builder.Services.AddTransient<IUserReposistory, UserReposistory>();
 builder.Services.AddTransient<ICategoryReposistory, CategoryReposistory>();
 builder.Services.AddTransient<ILocationReposistory, LocationReposistory>();
+builder.Services.AddTransient<IInvestorReposistory, InvestorReposistory>();
 
 var app = builder.Build();
 
@@ -40,5 +41,4 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Admin}/{action=index}/{id?}");
-
 app.Run();

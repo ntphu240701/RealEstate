@@ -1,4 +1,4 @@
-﻿@model List<RealEstate.Models.Post>
+﻿@model HomeModel
 
 @{
     ViewData["Title"] = "All Properties";
@@ -32,39 +32,26 @@
     </div>
 </section>
 <!--/ Intro Single End /-->
+
 <!--/ Property Grid Star /-->
 <section class="property-grid grid">
-
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="grid-option">
-                    <form>
-                        <select class="custom-select">
-                            <option selected>All</option>
-                            <option value="1">New to Old</option>
-                            <option value="2">For Rent</option>
-                            <option value="3">For Sale</option>
-                        </select>
-                    </form>
-                </div>
-            </div>
-
             <!--  single div tag-->
             <tbody>
-                @foreach (var obj in Model)
+                @foreach (var obj in Model.MyPost)
                 {
                     <div class="col-md-4">
                         <div class="card-box-a card-shadow">
                             <div class="img-box-a">
-                                <img src="~/img/property-1.jpg" alt="" class="img-a img-fluid">
+                                <img src="~/img/@obj.RealEstate.Images.ToList()[0].Image1" alt="" class="img-a img-fluid">
                             </div>
 
                             <div class="card-overlay">
                                 <div class="card-overlay-a-content">
                                     <div class="card-header-a">
                                         <h2 class="card-title-a">
-                                            <a> @obj.RealEstate.Name</a>
+                                            <span>@obj.RealEstate.Name</span>
                                         </h2>
                                     </div>
 
@@ -72,10 +59,7 @@
                                         <div class="price-box d-flex">
                                             <span class="price-a">@obj.RealEstate.Price</span>
                                         </div>
-                                        có phải click ở đay là vao trang chi tiêt ko?
-                                        dạ ko
-                                        nằm ở Project ạ
-                                        <a asp-controller="Home" asp-action="ProjectDetail" class="link-a">
+                                        <a asp-area="" asp-controller="Home" asp-action="Detail" asp-route-id="@obj.RealEstate.Id" class="link-a">
                                             Click here to view
                                             <span class="ion-ios-arrow-forward"></span>
                                         </a>
@@ -90,24 +74,22 @@
 
                                             <li>
                                                 <h4 class="card-info-title">Type</h4>
-                                                <span>@obj.RealEstate.CategoryId</span>
+                                                <span>@obj.RealEstate.Category.Name</span>
                                             </li>
-
                                             <li>
                                                 <h4 class="card-info-title">Location</h4>
-                                                <span> @obj.RealEstate.LocationId</span>
+                                                <span> @obj.RealEstate.Location.Name</span>
                                             </li>
-
                                             <li>
                                                 <h4 class="card-info-title">Investor</h4>
-                                                <span> @obj.RealEstate.ChuDauTuId</span>
+                                                <span> @obj.RealEstate.ChuDauTu.Name</span>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>                
                 }
             </tbody>
             <!-- end of 1 div tag-->

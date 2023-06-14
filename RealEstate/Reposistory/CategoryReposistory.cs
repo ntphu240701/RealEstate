@@ -3,14 +3,12 @@ using Microsoft.EntityFrameworkCore;
 
 
 namespace RealEstate.Reposistory
-
 {
     public interface ICategoryReposistory
     {
         public List<Post> GetPosts();
 
         public List<Category> GetProp();
-
     }
 
     public class CategoryReposistory : ICategoryReposistory

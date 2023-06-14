@@ -44,8 +44,10 @@ namespace RealEstate.Reposistory
         {
             return _ctx.News
                 .Where(x => x.Id == Id)
+
                 .Include(x => x.Images)
                 .SingleOrDefault();
+
         }
 
         public void Addnew(News news)

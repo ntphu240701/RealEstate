@@ -8,14 +8,6 @@ namespace RealEstate.Reposistory
         public List<Post> GetAll();
 
         public List<Post> GetTop3();
-        public Post GetById(int Id);
-        public void EditingPost(Post post);
-
-        public Boolean Create(Post post);
-
-        public Boolean Update(Post post);
-
-        public Boolean Delete(int postid);
     }
 
     public class PostReposistory : IPostReposistory
@@ -24,16 +16,6 @@ namespace RealEstate.Reposistory
         public PostReposistory(Ntphu24072001CnaContext ctx)
         {
             _ctx = ctx;
-        }
-
-        public bool Create(Post post)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete(int postid)
-        {
-            throw new NotImplementedException();
         }
 
         public List<Post> GetAll()
@@ -59,22 +41,6 @@ namespace RealEstate.Reposistory
                 .Include(x => x.RealEstate)
                 .ThenInclude(invest => invest.ChuDauTu)
                 .OrderByDescending(x => x.Id).Take(3).ToList();
-        }
-
-        public bool Update(Post post)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void EditingPost(Post post)
-        {
-
-        }
-        public Post GetById(int Id)
-        {
-            return _ctx.Posts.Where(x => x.Id == Id)
-                .Include(prop => prop.RealEstate.Images)
-                .SingleOrDefault();
         }
     }
 }
