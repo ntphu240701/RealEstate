@@ -8,4 +8,5 @@
         public List <News> MyNews { get; set; }
         public List <LoginUser> MyUser { get; set; }
     }
+
 }

@@ -11,6 +11,8 @@ namespace RealEstate.Reposistory
 
         public Property GetPropertyById(int id);
 
+        public List<Property> SearchProperties(string name);
+
     }
 
     public class PropertyReposistory : IPropertyReposistory
@@ -26,6 +28,7 @@ namespace RealEstate.Reposistory
             return _ctx.Properties.Include(x => x.Images).ToList();
         }
 
+
         public Property GetPropertyById(int id)
         {
             Property p = _ctx.Properties
@@ -35,9 +38,29 @@ namespace RealEstate.Reposistory
             .Include(x => x.Location)
             .SingleOrDefault();
 
-            //List<Post> posts = p.Posts.ToList();
-
             return p;
         }
+
+        public List<Property> SearchProperties(string name)
+        {
+
+            var query = _ctx.Properties.AsNoTracking().AsQueryable();
+
+            // Apply search filters
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(p => p.Name.Contains(name) );
+            }
+
+            //if (!string.IsNullOrEmpty(dientich))
+            //{
+            //    query = query.Where(p => p.DienTich == dientich);
+            //}
+
+            // Execute the query and return the results
+            return query.ToList();
+        }
+
+
     }
 }
