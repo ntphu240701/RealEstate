@@ -36,7 +36,16 @@ namespace RealEstate.Reposistory
         {
             return _ctx.Sellers
                 .Where(x => x.Id == Id)
-                .Include(x=>x.Images).SingleOrDefault();
+                .Include(x=>x.Images)
+                .Include(x=>x.Posts)
+                .ThenInclude(p=>p.RealEstate).ThenInclude(real=>real.Images)
+                .Include(x => x.Posts)
+                .ThenInclude(p => p.RealEstate).ThenInclude(real => real.Category)
+                .Include(x => x.Posts)
+                .ThenInclude(p => p.RealEstate).ThenInclude(real => real.Location)
+                .Include(x => x.Posts)
+                .ThenInclude(p => p.RealEstate).ThenInclude(real => real.ChuDauTu)
+                .SingleOrDefault();
         }
 
         /*public List<Seller> GetProperties()

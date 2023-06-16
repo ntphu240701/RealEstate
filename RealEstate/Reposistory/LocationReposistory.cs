@@ -5,7 +5,7 @@ namespace RealEstate.Reposistory
 {
     public interface ILocationReposistory
     {
-        public List<Location> GetPropWLoctation();
+        
     }
 
     public class LocationReposistory : ILocationReposistory
@@ -15,13 +15,6 @@ namespace RealEstate.Reposistory
         public LocationReposistory(Ntphu24072001CnaContext ctx)
         {
             _ctx = ctx;
-        }
-
-        public List<Location> GetPropWLoctation()
-        {
-            return _ctx.Locations
-            .Include(p => p.Properties)
-            .ToList();
         }
     }
 }

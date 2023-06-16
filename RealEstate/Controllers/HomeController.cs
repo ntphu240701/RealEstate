@@ -61,12 +61,6 @@ namespace RealEstate.Controllers
             return View(model);
         }
 
-        public IActionResult GetPosts()
-        {
-            List<Post> posts = _categoryReposistory.GetPosts();
-            return View("Buy", posts);
-        }
-
         public IActionResult AllProperties()
         {
             HomeModel model = new HomeModel();
@@ -75,7 +69,7 @@ namespace RealEstate.Controllers
             model.MyPost = objPostList;
 
             List<Property> objPropertyList = _propertyReposistory.GetAll();
-            model.MyProp = objPropertyList;            
+            model.MyProp = objPropertyList;
 
             return View(model);
         }
@@ -119,7 +113,7 @@ namespace RealEstate.Controllers
             model.MyProp = objPropertyList;
 
             return View(model);
-        }              
+        }
 
         public IActionResult Buy()
         {
@@ -145,7 +139,7 @@ namespace RealEstate.Controllers
             model.MyProp = objPropertyList;
 
             return View(model);
-        }      
+        }
 
         public IActionResult Detail(int id)
         {
@@ -180,8 +174,8 @@ namespace RealEstate.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-    [HttpPost]
-    public IActionResult SearchResult()
+        [HttpPost]
+        public IActionResult SearchResult()
         {
             var name = Request.Form["name"].ToString();
 
@@ -193,7 +187,5 @@ namespace RealEstate.Controllers
 
             return View("SearchResult", searchResult);
         }
-
-
     }
 }
