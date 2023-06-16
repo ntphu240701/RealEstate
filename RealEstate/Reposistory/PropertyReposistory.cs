@@ -11,7 +11,6 @@ namespace RealEstate.Reposistory
         public Property GetPropertyById(int id);
 
         public List<Property> SearchProperties(string name);
-
     }
 
     public class PropertyReposistory : IPropertyReposistory
@@ -30,7 +29,6 @@ namespace RealEstate.Reposistory
 
         public Property GetPropertyById(int id)
         {
-
             return _ctx.Properties
                 .Where(x => x.Id == id)
                 .Include(x => x.Posts)
@@ -40,12 +38,10 @@ namespace RealEstate.Reposistory
                 .Include(x => x.Category)
                 .Include(x =>x.ChuDauTu)
                 .SingleOrDefault();
-
         }
 
         public List<Property> SearchProperties(string name)
         {
-
             var query = _ctx.Properties.AsNoTracking().AsQueryable();
 
             // Apply search filters
@@ -60,9 +56,11 @@ namespace RealEstate.Reposistory
             //}
 
             // Execute the query and return the results
-            return query.ToList();
+            return query
+                .Include(x=>x.Images)
+                .Include(x=>x.Category)
+                .Include(x=>x.Location)
+                .Include(x=>x.ChuDauTu).ToList();
         }
-
-
     }
 }
