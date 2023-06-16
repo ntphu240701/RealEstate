@@ -31,12 +31,16 @@
                                 </ol>
                                 <button type="submit"
                                         class="au-btn au-btn-icon au-btn--green au-btn--small float-right">
-                                    <i class="fa fa-dot-circle-o"></i> Update
+                                    <a asp-area="" asp-controller="Admin" asp-action="EditingNew" asp-route-id="@Model.Id" style="color: white">
+                                        <i class="fa fa-dot-circle-o"></i> Update
+                                    </a>
                                 </button>
                                 <button type="reset"
                                         class="au-btn au-btn-icon au-btn--red au-btn--small float-right"
                                         style="margin-right: 1%;">
-                                    <i class="fa fa-ban"></i> Delete
+                                    <a asp-area="" asp-controller="Admin" asp-action="DeleteNew" asp-route-id="@Model.Id" style="color: white">
+                                        <i class="fa fa-ban"></i> Delete
+                                    </a>
                                 </button>
                             </div>
                         </div>
@@ -53,7 +57,7 @@
                                         <i class="fa fa-calender"></i>@Model.Date
                                     </li>
                                 </ul>
-                                <img src="~/img/about-1.jpg" class=" img-fluid mb-3 w-60 rounded mx-auto
+                                <img src="~/img/@Model.Images.ToList()[0].Image1" class=" img-fluid mb-3 w-60 rounded mx-auto
                                             d-block">
                                 <blockquote>
                                     @Model.Contents

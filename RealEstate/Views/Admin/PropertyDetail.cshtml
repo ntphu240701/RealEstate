@@ -21,17 +21,14 @@
                                         <a asp-area="" asp-controller="Admin" asp-action="Property" class="link-a">Property</a>
                                     </li>
                                     <li class="breadcrumb-item active">
-                                        <a asp-area="" asp-controller="Admin" asp-action="#" class="link-a">PropertyDetail</a>
+                                        <a asp-area="" asp-controller="Admin" asp-action="PropertyDetail" class="link-a">PropertyDetail</a>
                                     </li>
                                 </ol>
                                 <button type="submit"
                                         class="au-btn au-btn-icon au-btn--green au-btn--small float-right">
-                                    <i class="fa fa-dot-circle-o"></i> Update
-                                </button>
-                                <button type="reset"
-                                        class="au-btn au-btn-icon au-btn--red au-btn--small float-right"
-                                        style="margin-right: 1%;">
-                                    <i class="fa fa-ban"></i> Delete
+                                    <a asp-area="" asp-controller="Admin" asp-action="EditingProperty" asp-route-id="@Model.Id" style="color: white">
+                                        <i class="fa fa-dot-circle-o"></i> Update
+                                    </a>
                                 </button>
                             </div>
                         </div>
@@ -40,47 +37,74 @@
                         <div class="col-xl-3 col-xxl-4">
                             <div class="row">
                                 <div class="col-xl-12">
-                                    <div class="card bg-primary text-center">
-                                        <div class="card-body">
-                                            <h3 class="fs-30 text-white">-- PRICE -- </h3>
-                                            <span class="text-white font-w300">
-                                                @Model.Price
-                                            </span>
+                                    @if (Model.CategoryId == 2)
+                                    {
+                                        <div class="card bg-warning text-center">
+                                            <div class="card-body">
+                                                <h3 class="fs-30 text-white">-- TYPE -- </h3>
+                                                <span class="text-white font-w300">
+                                                    Project
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
 
+                                    }
+                                    else if (Model.CategoryId == 3)
+                                    {
+                                        <div class="card bg-info text-center">
+                                            <div class="card-body">
+                                                <h3 class="fs-30 text-white">-- TYPE -- </h3>
+                                                <span class="text-white font-w300">
+                                                    Rent
+                                                </span>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="card text-center" style="background-color:#007E33 ">
+                                            <div class="card-body">
+                                                <h3 class="fs-30 text-white">-- TYPE -- </h3>
+                                                <span class="text-white font-w300">
+                                                    Sell
+                                                </span>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="card">
-                                        <div class="card-header">
-                                            <strong class="card-title mb-3">Profile Card</strong>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="mx-auto d-block">
-                                                @foreach (var post in Model.Posts)
-                                                {
-                                                    <img class="rounded-circle mx-auto d-block"
-                                                         src="~/images/icon/avatar-01.jpg" alt="Card image cap">
-                                                    <h5 class="text-sm-center mt-2 mb-1" style="text-transform: uppercase">@post.Seller.Name</h5>
-                                                    <div class="location text-sm-center">
-                                                        <i class="fa fa-map-marker" style="text-transform: capitalize"></i> @post.Seller.Address
-                                                    </div>
-                                                    <div class="location text-sm-center">
-                                                        <i class="fa fa-phone">@post.Seller.Phone</i>
-                                                    </div>
-                                                }
+                                        @foreach (var postadmin in Model.Posts)
+                                        {
+                                            <div class="card-header">
+                                                <strong class="card-title mb-3">Profile Card</strong>
                                             </div>
-                                            <hr>
-                                            <h5 style="text-align: center; color: grey;">
-                                                About this Agent</h3>
+                                            <div class="card-body">
+                                                <div class="mx-auto d-block">
+                                                    <img class="rounded-circle mx-auto d-block"
+                                                         src="~/img/@postadmin.Seller.Images.ToList()[0].Image1" alt="Card image cap">
+                                                    <h5 class="text-sm-center mt-2 mb-1" style="text-transform: uppercase">@postadmin.Seller.Name</h5>
+                                                    <div class="location text-sm-center">
+                                                        <i class="fa fa-map-marker" style="text-transform: capitalize"></i> @postadmin.Seller.Address
+                                                    </div>
+                                                    <div class="location text-sm-center">
+                                                        <i class="fa fa-phone">@postadmin.Seller.Phone</i>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <h5 style="text-align: center; color: grey;">
+                                                    About this Agent
+                                                </h5>
                                                 <div class="card-text text-sm-center">
                                                     <button type="submit" class="btn au-btn--green btn-sm my-3"
                                                             style="float: center;color: white;">
-                                                        <i class="fa fa-info-circle"></i> More info
+                                                        <a asp-area="" asp-controller="Admin" asp-action="AgentDetail" asp-route-id="@postadmin.Seller.Id" style="color:white">
+                                                            <i class="fa fa-info-circle"></i> More info
+                                                        </a>
                                                     </button>
-                                                    </a>
                                                 </div>
-                                        </div>
+                                            </div>
+                                        }
                                     </div>
                                 </div>
                                 <div class="col-xl-12 col-lg-6 col-md-6">
@@ -103,37 +127,20 @@
                                 </div>
                             </div>
                         </div>
-                        @foreach (var post in Model.Posts)
+                        @foreach (var postadmin in Model.Posts)
                         {
                             <div class="col-xl-9 col-xxl-8">
                                 <div class="row">
                                     <div class="col-xl-12">
                                         <div class="card card-solid">
                                             <div class="card-body ">
-                                                <div class="col-12" style="width: 100%; margin: 30px;">
-                                                    <img src="~/./images/bg-title-01.jpg" class="product-image"
-                                                         alt="Product Image">
-                                                </div>
-                                                <div class="col-12 product-image-thumbs">
-                                                    <div class="product-image-thumb active">
-                                                        <img src="~/./images/icon/avatar-01.jpg" alt="Product Image">
-                                                    </div>
-                                                    <div class="product-image-thumb">
-                                                        <img src="~/./images/icon/avatar-02.jpg" alt="Product Image">
-                                                    </div>
-                                                    <div class="product-image-thumb">
-                                                        <img src="~/./images/icon/avatar-03.jpg" alt="Product Image">
-                                                    </div>
-                                                    <div class="product-image-thumb">
-                                                        <img src="~/./images/icon/avatar-04.jpg" alt="Product Image">
-                                                    </div>
-                                                    <div class="product-image-thumb">
-                                                        <img src="~/./images/icon/avatar-05.jpg" alt="Product Image">
-                                                    </div>
+                                                <div class="col-12" style="margin : 30px 0px">
+                                                    <img src="~/img/@Model.Images.ToList()[0].Image1" class="product-image"
+                                                         alt="Product Image" style="width: 80%; height: 85vh; margin-left:auto ; margin-right: auto; display : block;">
                                                 </div>
                                                 <hr>
-                                                <div class="mx-auto d-block">
-                                                    <div class="me-auto mb-md-0 mb-4">
+                                                <div class="d-md-flex d-block mb-sm-5 mb-3">
+                                                    <div class="mr-auto mb-md-0 mb-4">
                                                         <h2 class="font-w600 text-black" style="text-transform: capitalize">
                                                             @Model.Name
                                                         </h2>
@@ -150,103 +157,116 @@
                                                             @Model.Location.Name
                                                         </span>
                                                     </div>
-                                                    <div class="ms-md-4 text-md-right">
+                                                    <div class="ml-md-4 text-md-right float-right">
                                                         <p class="fs-14 text-black mb-1 me-1">
                                                             Price range
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16"> <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" /> <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z" /> </svg>
                                                         </p>
-                                                        <h4 class="fs-24 text-primary">@post.Low - @post.High</h4>
+                                                        <h4 class="fs-24 text-primary">@postadmin.Low - @postadmin.High</h4>
                                                     </div>
                                                 </div>
                                                 <h4 class="text-black fs-20 font-w600">Description</h4>
                                                 <p>
-                                                    @post.Description
+                                                    @postadmin.Description
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xxl-12">
                                             <div class="card">
+                                                <div class="card-header">
+                                                    <strong class="card-title mb-3"> Other Property</strong>
+                                                </div>
                                                 <div class="card-body">
                                                     <div class="slide-wrapper swiper">
                                                         <div class="slide-container">
                                                             <div class="card-wrapper swiper-wrapper">
                                                                 <div class="slider-card swiper-slide">
                                                                     <div class="image-box">
-                                                                        <img src="~/images/bg-title-01.jpg" alt="" />
+                                                                        <img src="~/img/@Model.Images.ToList()[0].Image1" alt="" />
                                                                     </div>
                                                                     <div class="profile-details">
-                                                                        <img src="~/images/icon/avatar-01.jpg"
+                                                                        <img src="~/img/@postadmin.Seller.Images.ToList()[0].Image1"
                                                                              alt="" />
                                                                         <div class="name-job">
-                                                                            <h3 class="name">David Cardlos</h3>
+                                                                            <h3 class="name">@postadmin.Seller.Name</h3>
                                                                             <h4 class="job">
-                                                                                Full Stack Developer
+                                                                                @postadmin.Seller.Email
                                                                             </h4>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="slider-card swiper-slide">
                                                                     <div class="image-box">
-                                                                        <img src="~/images/bg-title-02.jpg" alt="" />
+                                                                        <img src="~/img/@Model.Images.ToList()[0].Image1" alt="" />
                                                                     </div>
                                                                     <div class="profile-details">
-                                                                        <img src="~/images/icon/avatar-02.jpg"
+                                                                        <img src="~/img/@postadmin.Seller.Images.ToList()[0].Image1"
                                                                              alt="" />
                                                                         <div class="name-job">
-                                                                            <h3 class="name">Siliana Ramis</h3>
-                                                                            <h4 class="job">Photographer</h4>
+                                                                            <h3 class="name">@postadmin.Seller.Name</h3>
+                                                                            <h4 class="job">
+                                                                                @postadmin.Seller.Email
+                                                                            </h4>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="slider-card swiper-slide">
                                                                     <div class="image-box">
-                                                                        <img src="~/images/bg-title-02.jpg" alt="" />
+                                                                        <img src="~/img/@Model.Images.ToList()[0].Image1" alt="" />
                                                                     </div>
                                                                     <div class="profile-details">
-                                                                        <img src="~/images/icon/avatar-03.jpg"
+                                                                        <img src="~/img/@postadmin.Seller.Images.ToList()[0].Image1"
                                                                              alt="" />
                                                                         <div class="name-job">
-                                                                            <h3 class="name">Richard Bond</h3>
-                                                                            <h4 class="job">Data Analyst</h4>
+                                                                            <h3 class="name">@postadmin.Seller.Name</h3>
+                                                                            <h4 class="job">
+                                                                                @postadmin.Seller.Email
+                                                                            </h4>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="slider-card swiper-slide">
                                                                     <div class="image-box">
-                                                                        <img src="~/images/bg-title-01.jpg" alt="" />
+                                                                        <img src="~/img/@Model.Images.ToList()[0].Image1" alt="" />
                                                                     </div>
                                                                     <div class="profile-details">
-                                                                        <img src="~/images/icon/avatar-04.jpg"
+                                                                        <img src="~/img/@postadmin.Seller.Images.ToList()[0].Image1"
                                                                              alt="" />
                                                                         <div class="name-job">
-                                                                            <h3 class="name">Priase</h3>
-                                                                            <h4 class="job">App Developer</h4>
+                                                                            <h3 class="name">@postadmin.Seller.Name</h3>
+                                                                            <h4 class="job">
+                                                                                @postadmin.Seller.Email
+                                                                            </h4>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="slider-card swiper-slide">
                                                                     <div class="image-box">
-                                                                        <img src="~/images/bg-title-01.jpg" alt="" />
+                                                                        <img src="~/img/@Model.Images.ToList()[0].Image1" alt="" />
                                                                     </div>
                                                                     <div class="profile-details">
-                                                                        <img src="~/images/icon/avatar-04.jpg"
+                                                                        <img src="~/img/@postadmin.Seller.Images.ToList()[0].Image1"
                                                                              alt="" />
                                                                         <div class="name-job">
-                                                                            <h3 class="name">Priase</h3>
-                                                                            <h4 class="job">App Developer</h4>
+                                                                            <h3 class="name">@postadmin.Seller.Name</h3>
+                                                                            <h4 class="job">
+                                                                                @postadmin.Seller.Email
+                                                                            </h4>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="slider-card swiper-slide">
                                                                     <div class="image-box">
-                                                                        <img src="~/images/bg-title-01.jpg" alt="" />
+                                                                        <img src="~/img/@Model.Images.ToList()[0].Image1" alt="" />
                                                                     </div>
                                                                     <div class="profile-details">
-                                                                        <img src="~/images/icon/avatar-04.jpg"
+                                                                        <img src="~/img/@postadmin.Seller.Images.ToList()[0].Image1"
                                                                              alt="" />
                                                                         <div class="name-job">
-                                                                            <h3 class="name">Priase</h3>
-                                                                            <h4 class="job">App Developer</h4>
+                                                                            <h3 class="name">@postadmin.Seller.Name</h3>
+                                                                            <h4 class="job">
+                                                                                @postadmin.Seller.Email
+                                                                            </h4>
                                                                         </div>
                                                                     </div>
                                                                 </div>

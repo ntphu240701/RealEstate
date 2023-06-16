@@ -1,5 +1,6 @@
 ﻿using RealEstate.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RealEstate.Reposistory
 {
@@ -11,7 +12,9 @@ namespace RealEstate.Reposistory
 
         public Seller GetById(int Id);
 
-        //public List<Seller> GetProperties();
+        public void DeleteAgent(Seller seller);
+
+        public void EditingAgent(Seller seller);
     }
 
     public class SellerReposistory : ISellerReposistory
@@ -34,6 +37,8 @@ namespace RealEstate.Reposistory
 
         public Seller GetById(int Id)
         {
+            return _ctx.Sellers.Where(x => x.Id == Id)
+                .Include(prop => prop.Images)
             return _ctx.Sellers
                 .Where(x => x.Id == Id)
                 .Include(x=>x.Images)
@@ -48,12 +53,37 @@ namespace RealEstate.Reposistory
                 .SingleOrDefault();
         }
 
-        /*public List<Seller> GetProperties()
+        public void EditingAgent(Seller seller)
         {
+            if (seller != null)
+            {
+                var existingAgent = _ctx.Sellers.Where(x => x.Id == seller.Id).Include(prop => prop.Images).FirstOrDefault();
+                if (existingAgent != null)
+                {
+                    existingAgent.Id = seller.Id;
+                    existingAgent.UserName = seller.UserName;
+                    existingAgent.PassWord = seller.PassWord;
+                    existingAgent.Phone = seller.Phone;
+                    existingAgent.Address = seller.Address;
+                    existingAgent.Email = seller.Email;
+                    existingAgent.Name = seller.Name;
+
+                    _ctx.SaveChanges();
+                }
+            }
+        }
+        public void DeleteAgent(Seller seller)
+        {
+            if (seller != null)
+            {
+                _ctx.Sellers.Remove(seller);
+                _ctx.SaveChanges();
+
+                string extension = Path.GetExtension(seller.Name);
+            }
             return _ctx.Sellers
-                .Include(x => x.Posts)
-                .ThenInclude(post=>post.RealEstate)
-                .Include(x=>x.);
-        }*/
+                .Where(x => x.Id == Id)
+                .Include(x => x.Images).SingleOrDefault();
+        }
     }
 }

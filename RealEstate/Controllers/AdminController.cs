@@ -3,6 +3,7 @@ using RealEstate.Models;
 using RealEstate.Models.Admin_Models;
 using RealEstate.Reposistory;
 
+
 namespace RealEstate.Controllers
 {
     public class AdminController : Controller
@@ -29,6 +30,9 @@ namespace RealEstate.Controllers
         {
             return View();
         }
+
+        /* --------------- Property --------------- */
+
         public IActionResult Property()
         {
             AdminModel model = new AdminModel();
@@ -41,9 +45,11 @@ namespace RealEstate.Controllers
 
             return View(model);
         }
-        public IActionResult EditProperty(int Id)
+        public IActionResult EditingProperty(int id)
         {
-            return View("EditProperty");
+            Post editproperty = _postReposistory.GetById(id);
+
+            return View("EditingProperty", editproperty);
         }
         public IActionResult PropertyDetail(int Id)
         {
@@ -51,6 +57,9 @@ namespace RealEstate.Controllers
 
             return View("PropertyDetail", propertydetail);
         }
+
+        /* --------------- AGENTS --------------- */
+
         public IActionResult Agent()
         {
             var objSellerList = _sellerReposistory.GetAll();
@@ -62,41 +71,81 @@ namespace RealEstate.Controllers
             Seller sellerDetail = _sellerReposistory.GetById(id);
             return View("AgentDetail", sellerDetail);
         }
-        public IActionResult EditAgent(int id)
+        public IActionResult EditingAgent(int id)
         {
             Seller sellerEdit = _sellerReposistory.GetById(id);
-            return View("EditAgent", sellerEdit);
+            return View("EditingAgent", sellerEdit);
         }
+        [HttpPost]
+        public IActionResult EditingAgent(Seller seller)
+        {
+            _sellerReposistory.EditingAgent(seller);
+            return RedirectToAction("Agent");
+        }
+        public IActionResult DeleteAgent(int id)
+        {
+            var sellerDetail = _sellerReposistory.GetById(id);
+            return View("DeleteAgent", sellerDetail);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteAgent(Seller seller)
+        {
+            _sellerReposistory.DeleteAgent(seller);
+
+            return RedirectToAction("Agent");
+        }
+
+        /* --------------- NEWS --------------- */
         public IActionResult New()
         {
             var objNewList = _newsReposistory.GetAll();
-
             return View("New", objNewList);
         }
-        [HttpGet]
-        public IActionResult AddNew()
+        public IActionResult AddNew2()
         {
-            return View();
+            return View("AddNew2");
         }
-        /*[HttpPost]
-        public IActionResult AddNew(News news)
+        [HttpPost]
+        public IActionResult AddNew2(News news)
         {
-            _newsReposistory.Add(news);
-
-            return View();
-        }*/
+            _newsReposistory.UploadImage(news);
+            _newsReposistory.Addnew(news);
+            return RedirectToAction("New");
+        }
         public IActionResult NewDetail(int Id)
         {
             var objNew = _newsReposistory.GetById(Id);
 
-            return View("NewDetail", objNew); ;
+            return View("NewDetail", objNew);
         }
-        public IActionResult EditNew(int Id)
+        public IActionResult EditingNew(int id)
         {
-            var objNew = _newsReposistory.GetById(Id);
-
-            return View("EditNew", objNew); ;
+            var objNew = _newsReposistory.GetById(id);
+            return View("EditingNew", objNew);
         }
+
+        [HttpPost]
+        public IActionResult EditingNew(News news)
+        {
+            _newsReposistory.EditingNew(news);
+            return RedirectToAction("New");
+        }
+
+        public IActionResult DeleteNews(int id)
+        {
+            var objNew = _newsReposistory.GetById(id);
+            return View("DeleteNews", objNew);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteNews(News news)
+        {
+            _newsReposistory.DeleteNews(news);
+
+            return RedirectToAction("New");
+        }
+        /* --------------- PAGES --------------- */
         public IActionResult Login()
         {
             return View();

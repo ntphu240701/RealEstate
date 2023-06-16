@@ -36,7 +36,7 @@ namespace RealEstate.Reposistory
                 .Include(x => x.Location)
                 .Include(x => x.Images)
                 .Include(x => x.Category)
-                .Include(x =>x.ChuDauTu)
+                .Include(x => x.ChuDauTu)
                 .SingleOrDefault();
         }
 

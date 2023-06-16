@@ -260,6 +260,7 @@ section {
 .page-container {
     background: #e5e5e5;
     padding-left: 300px;
+    padding-bottom: 30px;
 }
 
 @media (max-width: 991px) {
@@ -287,8 +288,8 @@ section {
 }
 
 .main-content {
-    padding-top: 100px;
-    min-height: 100vh;
+    padding-top: 48px;
+    min-height: 120vh;
 }
 
 @media (max-width: 991px) {
@@ -15021,7 +15022,6 @@ li {
 }
 
 img {
-    width: 70%;
     vertical-align: middle;
     border-style: none;
 }
@@ -15090,6 +15090,7 @@ img {
 }
 
 .about-section .counter {
+    margin-top: 50px;
     padding: 32px 20px;
     background: #ffffff;
     border-radius: 10px;
