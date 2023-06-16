@@ -45,11 +45,11 @@ namespace RealEstate.Controllers
 
             return View(model);
         }
-        public IActionResult EditingProperty(int id)
+        public IActionResult EditingProperty()
         {
-            Post editproperty = _postReposistory.GetById(id);
+//             Post editproperty = _postReposistory.GetById(id);
 
-            return View("EditingProperty", editproperty);
+            return View("EditingProperty");
         }
         public IActionResult PropertyDetail(int Id)
         {
