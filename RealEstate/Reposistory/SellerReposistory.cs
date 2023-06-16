@@ -37,8 +37,6 @@ namespace RealEstate.Reposistory
 
         public Seller GetById(int Id)
         {
-            return _ctx.Sellers.Where(x => x.Id == Id)
-                .Include(prop => prop.Images)
             return _ctx.Sellers
                 .Where(x => x.Id == Id)
                 .Include(x=>x.Images)
@@ -78,12 +76,7 @@ namespace RealEstate.Reposistory
             {
                 _ctx.Sellers.Remove(seller);
                 _ctx.SaveChanges();
-
-                string extension = Path.GetExtension(seller.Name);
             }
-            return _ctx.Sellers
-                .Where(x => x.Id == Id)
-                .Include(x => x.Images).SingleOrDefault();
         }
     }
 }
