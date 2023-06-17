@@ -56,7 +56,6 @@ namespace RealEstate.Reposistory
 
             // Execute the query and return the results
             return query
-                .Include(x=>x.Image)
                 .Include(x=>x.Category)
                 .Include(x=>x.Location)
                 .Include(x=>x.ChuDauTu).ToList();
