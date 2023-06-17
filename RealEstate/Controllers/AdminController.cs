@@ -51,9 +51,10 @@ namespace RealEstate.Controllers
 
             return View("EditingProperty");
         }
+
         public IActionResult PropertyDetail(int Id)
         {
-            Property propertydetail = _propertyReposistory.GetPropertyById(Id);
+            var propertydetail = _propertyReposistory.GetPropertyById(Id);
 
             return View("PropertyDetail", propertydetail);
         }
@@ -109,7 +110,7 @@ namespace RealEstate.Controllers
         [HttpPost]
         public IActionResult AddNew2(News news)
         {
-            _newsReposistory.UploadImage(news);
+            //_newsReposistory.UploadImage(news);
             _newsReposistory.Addnew(news);
             return RedirectToAction("New");
         }

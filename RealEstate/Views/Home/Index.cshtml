@@ -214,12 +214,11 @@
         <div id="property-carousel" class="owl-carousel owl-theme">
             <tbody>
                 @foreach (var obj in Model.MyPost)
-                {
-                    string imgURL = @obj.RealEstate.Images.ToList()[0].Image1;
+                {                    
                     <div class="carousel-item-b">
                         <div class="card-box-a card-shadow">
                             <div class="img-box-a">
-                                <img src="img/@imgURL" alt="" class="img-a img-fluid">
+                                <img src="~/img/@obj.RealEstate.Image" alt="" class="img-a img-fluid">
                             </div>
                             <div class="card-overlay">
                                 <div class="card-overlay-a-content">
@@ -294,11 +293,10 @@
             <tbody>
                 @foreach (var obj in Model.MySeller)
                 {
-                    string imgURL = @obj.Images.ToList()[0].Image1;
                     <div class="col-md-4">
                         <div class="card-box-d">
                             <div class="card-img-d">
-                                <img src="img/@imgURL" alt="" class="img-d img-fluid">
+                                <img src="~/img/@obj.Image" alt="" class="img-d img-fluid">
                             </div>
                             <div class="card-overlay card-overlay-hover">
                                 <div class="card-header-d">
@@ -387,11 +385,10 @@
             <tbody>
                 @foreach (var obj in Model.MyNews)
                 {
-                    string imgURL = @obj.Images.ToList()[0].Image1;
                     <div class="carousel-item-c">
                         <div class="card-box-b card-shadow news-box">
                             <div class="img-box-b">
-                                <img src="img/@imgURL" alt="" class="img-b img-fluid">
+                                <img src="~/img/@obj.Image" alt="" class="img-b img-fluid">
                             </div>
                             <div class="card-overlay">
                                 <div class="card-header-b">                            
@@ -579,13 +576,12 @@
             <tbody>
                 @foreach (var obj in Model.MyUser)
                 {
-                    string imgURL = @obj.Images.ToList()[0].Image1;
                     <div class="carousel-item-a">
                         <div class="testimonials-box">
                             <div class="row">
                                 <div class="col-sm-12 col-md-6">
                                     <div class="testimonial-img">
-                                        <img src="img/@imgURL" alt="" class="img-fluid">
+                                        <img src="~/img/@obj.Image" alt="" class="img-fluid">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6">
@@ -600,7 +596,7 @@
                                         </p>
                                     </div>
                                     <div class="testimonial-author-box">
-                                        <img src="img/@imgURL" alt="" class="testimonial-avatar">
+                                        <img src="~/img/@obj.Image" alt="" class="testimonial-avatar">
                                         <h5 class="testimonial-author">@obj.Name</h5>
                                     </div>
                                 </div>

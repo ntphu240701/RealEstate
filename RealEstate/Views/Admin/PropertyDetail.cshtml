@@ -80,7 +80,7 @@
                                                 <strong class="card-title mb-3">Profile Card</strong>
                                             </div>
                                             <div class="card-body">
-                                                <div class="mx-auto d-block">
+                                                @*<div class="mx-auto d-block">
                                                     <img class="rounded-circle mx-auto d-block"
                                                          src="~/img/@postadmin.Seller.Images.ToList()[0].Image1" alt="Card image cap">
                                                     <h5 class="text-sm-center mt-2 mb-1" style="text-transform: uppercase">@postadmin.Seller.Name</h5>
@@ -90,7 +90,7 @@
                                                     <div class="location text-sm-center">
                                                         <i class="fa fa-phone">@postadmin.Seller.Phone</i>
                                                     </div>
-                                                </div>
+                                                </div>*@
                                                 <hr>
                                                 <h5 style="text-align: center; color: grey;">
                                                     About this Agent
@@ -134,10 +134,10 @@
                                     <div class="col-xl-12">
                                         <div class="card card-solid">
                                             <div class="card-body ">
-                                                <div class="col-12" style="margin : 30px 0px">
+                                                @*<div class="col-12" style="margin : 30px 0px">
                                                     <img src="~/img/@Model.Images.ToList()[0].Image1" class="product-image"
                                                          alt="Product Image" style="width: 80%; height: 85vh; margin-left:auto ; margin-right: auto; display : block;">
-                                                </div>
+                                                </div>*@
                                                 <hr>
                                                 <div class="d-md-flex d-block mb-sm-5 mb-3">
                                                     <div class="mr-auto mb-md-0 mb-4">
@@ -179,98 +179,27 @@
                                                 <div class="card-body">
                                                     <div class="slide-wrapper swiper">
                                                         <div class="slide-container">
-                                                            <div class="card-wrapper swiper-wrapper">
-                                                                <div class="slider-card swiper-slide">
-                                                                    <div class="image-box">
-                                                                        <img src="~/img/@Model.Images.ToList()[0].Image1" alt="" />
-                                                                    </div>
-                                                                    <div class="profile-details">
-                                                                        <img src="~/img/@postadmin.Seller.Images.ToList()[0].Image1"
-                                                                             alt="" />
-                                                                        <div class="name-job">
-                                                                            <h3 class="name">@postadmin.Seller.Name</h3>
-                                                                            <h4 class="job">
-                                                                                @postadmin.Seller.Email
-                                                                            </h4>
+                                                            @*<div class="card-wrapper swiper-wrapper">
+                                                                @foreach (var obj in Model.Posts)
+                                                                {
+
+                                                                    <div class="slider-card swiper-slide">
+                                                                        <div class="image-box">
+                                                                            <img src="~/img/@Model.Images.ToList()[0].Image1" alt="" />
+                                                                        </div>
+                                                                    
+                                                                        <div class="profile-details">
+                                                                            <img src="~/img/@postadmin.Seller.Images.ToList()[0].Image1"
+                                                                                 alt="" />
+                                                                            <div class="name-job">
+                                                                                <h3 class="name">@postadmin.RealEstate.Name</h3>
+                                                                                <h4 class="job">@postadmin.RealEstate.Location.Name</h4>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="slider-card swiper-slide">
-                                                                    <div class="image-box">
-                                                                        <img src="~/img/@Model.Images.ToList()[0].Image1" alt="" />
-                                                                    </div>
-                                                                    <div class="profile-details">
-                                                                        <img src="~/img/@postadmin.Seller.Images.ToList()[0].Image1"
-                                                                             alt="" />
-                                                                        <div class="name-job">
-                                                                            <h3 class="name">@postadmin.Seller.Name</h3>
-                                                                            <h4 class="job">
-                                                                                @postadmin.Seller.Email
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="slider-card swiper-slide">
-                                                                    <div class="image-box">
-                                                                        <img src="~/img/@Model.Images.ToList()[0].Image1" alt="" />
-                                                                    </div>
-                                                                    <div class="profile-details">
-                                                                        <img src="~/img/@postadmin.Seller.Images.ToList()[0].Image1"
-                                                                             alt="" />
-                                                                        <div class="name-job">
-                                                                            <h3 class="name">@postadmin.Seller.Name</h3>
-                                                                            <h4 class="job">
-                                                                                @postadmin.Seller.Email
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="slider-card swiper-slide">
-                                                                    <div class="image-box">
-                                                                        <img src="~/img/@Model.Images.ToList()[0].Image1" alt="" />
-                                                                    </div>
-                                                                    <div class="profile-details">
-                                                                        <img src="~/img/@postadmin.Seller.Images.ToList()[0].Image1"
-                                                                             alt="" />
-                                                                        <div class="name-job">
-                                                                            <h3 class="name">@postadmin.Seller.Name</h3>
-                                                                            <h4 class="job">
-                                                                                @postadmin.Seller.Email
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="slider-card swiper-slide">
-                                                                    <div class="image-box">
-                                                                        <img src="~/img/@Model.Images.ToList()[0].Image1" alt="" />
-                                                                    </div>
-                                                                    <div class="profile-details">
-                                                                        <img src="~/img/@postadmin.Seller.Images.ToList()[0].Image1"
-                                                                             alt="" />
-                                                                        <div class="name-job">
-                                                                            <h3 class="name">@postadmin.Seller.Name</h3>
-                                                                            <h4 class="job">
-                                                                                @postadmin.Seller.Email
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="slider-card swiper-slide">
-                                                                    <div class="image-box">
-                                                                        <img src="~/img/@Model.Images.ToList()[0].Image1" alt="" />
-                                                                    </div>
-                                                                    <div class="profile-details">
-                                                                        <img src="~/img/@postadmin.Seller.Images.ToList()[0].Image1"
-                                                                             alt="" />
-                                                                        <div class="name-job">
-                                                                            <h3 class="name">@postadmin.Seller.Name</h3>
-                                                                            <h4 class="job">
-                                                                                @postadmin.Seller.Email
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                                }
+                                                            </div>*@
+
                                                             <div class="swiper-button-next swiper-navBtn"></div>
                                                             <div class="swiper-button-prev swiper-navBtn"></div>
                                                             <div class="swiper-pagination"></div>

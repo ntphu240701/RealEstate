@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using RealEstate.Models.Admin_Models;
 
 namespace RealEstate.Models;
 
@@ -22,8 +21,6 @@ public partial class Ntphu24072001CnaContext : DbContext
 
     public virtual DbSet<ChuDauTu> ChuDauTus { get; set; }
 
-    public virtual DbSet<Image> Images { get; set; }
-
     public virtual DbSet<Location> Locations { get; set; }
 
     public virtual DbSet<LoginUser> LoginUsers { get; set; }
@@ -38,7 +35,7 @@ public partial class Ntphu24072001CnaContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=sql.bsite.net\\MSSQL2016;Database=ntphu24072001_CNA;User Id=ntphu24072001_CNA;Password=123;TrustServerCertificate=true;");
+        => optionsBuilder.UseSqlServer("Server=sql.bsite.net\\MSSQL2016;Database=ntphu24072001_CNA;uid=ntphu24072001_CNA;password=123;Encrypt=True;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -61,31 +58,6 @@ public partial class Ntphu24072001CnaContext : DbContext
         modelBuilder.Entity<ChuDauTu>(entity =>
         {
             entity.ToTable("ChuDauTu");
-        });
-
-        modelBuilder.Entity<Image>(entity =>
-        {
-            entity.Property(e => e.Image1).HasColumnName("Image");
-            entity.Property(e => e.LoginUserId).HasColumnName("LoginUser_Id");
-            entity.Property(e => e.NewsId).HasColumnName("News_Id");
-            entity.Property(e => e.RealEstateId).HasColumnName("RealEstate_Id");
-            entity.Property(e => e.SellerId).HasColumnName("Seller_Id");
-
-            entity.HasOne(d => d.LoginUser).WithMany(p => p.Images)
-                .HasForeignKey(d => d.LoginUserId)
-                .HasConstraintName("FK_Images_LoginUser");
-
-            entity.HasOne(d => d.News).WithMany(p => p.Images)
-                .HasForeignKey(d => d.NewsId)
-                .HasConstraintName("FK_Images_News");
-
-            entity.HasOne(d => d.RealEstate).WithMany(p => p.Images)
-                .HasForeignKey(d => d.RealEstateId)
-                .HasConstraintName("FK_Images_RealEstate");
-
-            entity.HasOne(d => d.Seller).WithMany(p => p.Images)
-                .HasForeignKey(d => d.SellerId)
-                .HasConstraintName("FK_Images_Seller");
         });
 
         modelBuilder.Entity<Location>(entity =>
@@ -163,7 +135,7 @@ public partial class Ntphu24072001CnaContext : DbContext
             entity.HasOne(d => d.ChuDauTu).WithMany(p => p.Properties)
                 .HasForeignKey(d => d.ChuDauTuId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_RealEstate_ChuDauTu1");
+                .HasConstraintName("FK_Property_ChuDauTu");
 
             entity.HasOne(d => d.Location).WithMany(p => p.Properties)
                 .HasForeignKey(d => d.LocationId)
@@ -180,5 +152,4 @@ public partial class Ntphu24072001CnaContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-
 }

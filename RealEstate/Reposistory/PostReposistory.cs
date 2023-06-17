@@ -22,8 +22,6 @@ namespace RealEstate.Reposistory
         {
             return _ctx.Posts
                 .Include(x => x.RealEstate)
-                .ThenInclude(prop => prop.Images)
-                .Include(x => x.RealEstate)
                 .ThenInclude(cate => cate.Category)
                 .Include(x => x.RealEstate)
                 .ThenInclude(locate => locate.Location)
