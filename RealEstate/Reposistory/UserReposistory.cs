@@ -18,7 +18,7 @@ namespace RealEstate.Reposistory
 
         public List<LoginUser> GetAll()
         {
-            return _ctx.LoginUsers.Include(x => x.Images).ToList();
+            return _ctx.LoginUsers.ToList();
         }
     }
 }

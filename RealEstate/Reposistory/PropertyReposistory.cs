@@ -23,7 +23,7 @@ namespace RealEstate.Reposistory
 
         public List<Property> GetAll()
         {
-            return _ctx.Properties.Include(x => x.Images).ToList();
+            return _ctx.Properties.ToList();
         }
 
 
@@ -32,9 +32,8 @@ namespace RealEstate.Reposistory
             return _ctx.Properties
                 .Where(x => x.Id == id)
                 .Include(x => x.Posts)
-                .ThenInclude(post => post.Seller).ThenInclude(seller => seller.Images)
+                .ThenInclude(post => post.Seller)
                 .Include(x => x.Location)
-                .Include(x => x.Images)
                 .Include(x => x.Category)
                 .Include(x => x.ChuDauTu)
                 .SingleOrDefault();
@@ -57,7 +56,7 @@ namespace RealEstate.Reposistory
 
             // Execute the query and return the results
             return query
-                .Include(x=>x.Images)
+                .Include(x=>x.Image)
                 .Include(x=>x.Category)
                 .Include(x=>x.Location)
                 .Include(x=>x.ChuDauTu).ToList();

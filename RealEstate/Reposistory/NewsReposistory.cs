@@ -17,7 +17,7 @@ namespace RealEstate.Reposistory
         public void Addnew(News news);
         public void EditingNew(News news);
         public void DeleteNews(News news);
-        public string UploadImage(News news);
+        //public string UploadImage(News news);
     }
 
     public class NewsReposistory : INewsReposistory
@@ -32,19 +32,18 @@ namespace RealEstate.Reposistory
 
         public List<News> GetAll()
         {
-            return _ctx.News.Include(x => x.Images).ToList();
+            return _ctx.News.ToList();
         }
 
         public List<News> GetTop3()
         {
-            return _ctx.News.Include(x => x.Images).OrderByDescending(x => x.Id).Take(3).ToList();
+            return _ctx.News.OrderByDescending(x => x.Id).Take(3).ToList();
         }
 
         public News GetById(int Id)
         {
             return _ctx.News
                 .Where(x => x.Id == Id)
-                .Include(x => x.Images)
                 .SingleOrDefault();
         }
 
@@ -79,7 +78,7 @@ namespace RealEstate.Reposistory
                 _ctx.SaveChanges();
             }
         }
-        public string UploadImage(News news)
+        /*public string UploadImage(News news)
         {
             string uniqueFileName = null;
             if (news.FrontImage != null)
@@ -96,6 +95,6 @@ namespace RealEstate.Reposistory
                 _ctx.SaveChanges();
             }
             return uniqueFileName;
-        }
+        }*/
     }
 }

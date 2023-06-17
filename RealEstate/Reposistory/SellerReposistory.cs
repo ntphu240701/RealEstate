@@ -27,21 +27,18 @@ namespace RealEstate.Reposistory
 
         public List<Seller> GetAll()
         {
-            return _ctx.Sellers.Include(x => x.Images).ToList();
+            return _ctx.Sellers.ToList();
         }
 
         public List<Seller> GetTop3()
         {
-            return _ctx.Sellers.Include(x => x.Images).OrderByDescending(x => x.Id).Take(3).ToList();
+            return _ctx.Sellers.OrderByDescending(x => x.Id).Take(3).ToList();
         }
 
         public Seller GetById(int Id)
         {
             return _ctx.Sellers
-                .Where(x => x.Id == Id)
-                .Include(x=>x.Images)
-                .Include(x=>x.Posts)
-                .ThenInclude(p=>p.RealEstate).ThenInclude(real=>real.Images)
+                .Where(x => x.Id == Id) 
                 .Include(x => x.Posts)
                 .ThenInclude(p => p.RealEstate).ThenInclude(real => real.Category)
                 .Include(x => x.Posts)
@@ -55,7 +52,7 @@ namespace RealEstate.Reposistory
         {
             if (seller != null)
             {
-                var existingAgent = _ctx.Sellers.Where(x => x.Id == seller.Id).Include(prop => prop.Images).FirstOrDefault();
+                var existingAgent = _ctx.Sellers.Where(x => x.Id == seller.Id).Include(prop => prop.Image).FirstOrDefault();
                 if (existingAgent != null)
                 {
                     existingAgent.Id = seller.Id;

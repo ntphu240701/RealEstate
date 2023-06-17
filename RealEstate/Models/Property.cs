@@ -19,14 +19,13 @@ public partial class Property
 
     public int ChuDauTuId { get; set; }
 
+    public string? Image { get; set; }
+
     public virtual Category Category { get; set; } = null!;
 
     public virtual ChuDauTu ChuDauTu { get; set; } = null!;
 
-    public virtual ICollection<Image> Images { get; set; } = new List<Image>();
-
     public virtual Location Location { get; set; } = null!;
 
-    public virtual ICollection<Post> Posts { get; set; } = new List<Post>(); //exist 
-
+    public virtual ICollection<Post> Posts { get; set; } = new List<Post>();
 }
