@@ -8,12 +8,13 @@ namespace RealEstate.Reposistory
     public interface IPropertyReposistory
     {
         public List<Property> GetAll();
+      
         public void EditingProperty(Property property);
-
-
+      
         public Property GetPropertyById(int id);
 
         public List<Property> SearchProperties(string name);
+      
         public void DeleteProperty(Property property);
     }
 
@@ -129,6 +130,9 @@ namespace RealEstate.Reposistory
                 _ctx.Properties.Remove(property);
                 _ctx.SaveChanges();
             }
+                .Include(x=>x.Category)
+                .Include(x=>x.Location)
+                .Include(x=>x.ChuDauTu).ToList();
         }
     }
 }
