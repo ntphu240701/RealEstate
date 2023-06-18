@@ -83,48 +83,6 @@ namespace RealEstate.Migrations
                     b.ToTable("ChuDauTu", (string)null);
                 });
 
-            modelBuilder.Entity("RealEstate.Models.Image", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Image1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Image");
-
-                    b.Property<int?>("LoginUserId")
-                        .HasColumnType("int")
-                        .HasColumnName("LoginUser_Id");
-
-                    b.Property<int?>("NewsId")
-                        .HasColumnType("int")
-                        .HasColumnName("News_Id");
-
-                    b.Property<int?>("RealEstateId")
-                        .HasColumnType("int")
-                        .HasColumnName("RealEstate_Id");
-
-                    b.Property<int?>("SellerId")
-                        .HasColumnType("int")
-                        .HasColumnName("Seller_Id");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LoginUserId");
-
-                    b.HasIndex("NewsId");
-
-                    b.HasIndex("RealEstateId");
-
-                    b.HasIndex("SellerId");
-
-                    b.ToTable("Images");
-                });
-
             modelBuilder.Entity("RealEstate.Models.Location", b =>
                 {
                     b.Property<int>("Id")
@@ -157,6 +115,9 @@ namespace RealEstate.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -197,6 +158,9 @@ namespace RealEstate.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -285,6 +249,9 @@ namespace RealEstate.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("LocationId")
                         .HasColumnType("int")
                         .HasColumnName("Location_Id");
@@ -325,6 +292,9 @@ namespace RealEstate.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -353,37 +323,6 @@ namespace RealEstate.Migrations
                         .HasConstraintName("FK_Category_Category");
 
                     b.Navigation("Parent");
-                });
-
-            modelBuilder.Entity("RealEstate.Models.Image", b =>
-                {
-                    b.HasOne("RealEstate.Models.LoginUser", "LoginUser")
-                        .WithMany("Images")
-                        .HasForeignKey("LoginUserId")
-                        .HasConstraintName("FK_Images_LoginUser");
-
-                    b.HasOne("RealEstate.Models.News", "News")
-                        .WithMany("Images")
-                        .HasForeignKey("NewsId")
-                        .HasConstraintName("FK_Images_News");
-
-                    b.HasOne("RealEstate.Models.Property", "RealEstate")
-                        .WithMany("Images")
-                        .HasForeignKey("RealEstateId")
-                        .HasConstraintName("FK_Images_RealEstate");
-
-                    b.HasOne("RealEstate.Models.Seller", "Seller")
-                        .WithMany("Images")
-                        .HasForeignKey("SellerId")
-                        .HasConstraintName("FK_Images_Seller");
-
-                    b.Navigation("LoginUser");
-
-                    b.Navigation("News");
-
-                    b.Navigation("RealEstate");
-
-                    b.Navigation("Seller");
                 });
 
             modelBuilder.Entity("RealEstate.Models.Location", b =>
@@ -435,7 +374,7 @@ namespace RealEstate.Migrations
                         .WithMany("Properties")
                         .HasForeignKey("ChuDauTuId")
                         .IsRequired()
-                        .HasConstraintName("FK_RealEstate_ChuDauTu1");
+                        .HasConstraintName("FK_Property_ChuDauTu");
 
                     b.HasOne("RealEstate.Models.Location", "Location")
                         .WithMany("Properties")
@@ -474,27 +413,13 @@ namespace RealEstate.Migrations
                     b.Navigation("Properties");
                 });
 
-            modelBuilder.Entity("RealEstate.Models.LoginUser", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("RealEstate.Models.News", b =>
-                {
-                    b.Navigation("Images");
-                });
-
             modelBuilder.Entity("RealEstate.Models.Property", b =>
                 {
-                    b.Navigation("Images");
-
                     b.Navigation("Posts");
                 });
 
             modelBuilder.Entity("RealEstate.Models.Seller", b =>
                 {
-                    b.Navigation("Images");
-
                     b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618
