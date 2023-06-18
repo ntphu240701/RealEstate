@@ -10,6 +10,7 @@ public partial class Admin
     public string UserName { get; set; } = null!;
 
     public string PassWord { get; set; } = null!;
+    public string Email { get; set; } = null!;
 
     public virtual ICollection<Post> Posts { get; set; } = new List<Post>();
 }
